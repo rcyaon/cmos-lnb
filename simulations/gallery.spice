@@ -1,0 +1,43 @@
+** sch_path: /foss/pdks/ihp-sg13g2/libs.tech/xschem/sg13g2_pr/gallery.sch
+**.subckt gallery
+XX1 net1 bondpad size=80u shape=0 padtype=0
+XC1 net2 net3 cap_cmim w=7.0e-6 l=7.0e-6 m=1 mm_ok=1
+XC4 net4 net5 cap_cmomi w=5.0e-6 l=5.0e-6 mmin=1 mmax=5 feed=double subblock=0 m=1 mm_ok=1
+XC6 net6 net7 cap_cmomf w=5.0e-6 l=5.0e-6 mmin=1 mmax=5 subblock=0 m=1 mm_ok=1
+XC2 net8 net9 net10 cap_rfcmim w=10.0e-6 l=10.0e-6 wfeed=5.0e-6 m=1 mm_ok=1
+XD1 net11 net12 dantenna l=0.78u w=0.78u
+XD2 net13 net14 net15 diodevdd_2kv
+XD3 net16 net17 net18 diodevdd_4kv
+XD4 net19 net20 net21 diodevss_2kv
+XD5 net22 net23 net24 diodevss_4kv
+XD6 net25 net26 dpantenna l=0.78u w=0.78u
+XD7 net27 net28 nmoscl_2
+XD8 net29 net30 nmoscl_4
+XQ1 net31 net32 net33 net34 npn13G2 Nx=1 mm_ok=1
+XQ2 net35 net36 net37 net38 npn13G2l Nx=1 El=1.0 mm_ok=1
+XQ3 net39 net40 net41 net42 npn13G2v Nx=1 El=1 mm_ok=1
+XR1 net43 net44 ntap1 R=262.8473 w=0.78e-6 l=0.78e-6
+XR2 net45 net46 ptap1 R=262.8473 w=0.78e-6 l=0.78e-6
+XR3 net47 net48 sub! rhigh w=0.5e-6 l=0.96e-6 m=1 b=0 mm_ok=1
+XR4 net49 net50 sub! rppd w=0.5e-6 l=0.5e-6 m=1 b=0 mm_ok=1
+XM1 net51 net52 net53 net54 sg13_hv_nmos w=0.3u l=0.45u ng=1 m=1 mm_ok=1
+XM2 net55 net56 net57 net58 sg13_hv_pmos w=0.3u l=0.4u ng=1 m=1 mm_ok=1
+XM3 net59 net60 net61 net62 sg13_hv_nmos w=1.0u l=0.72u ng=1 m=1 rfmode=1 mm_ok=1
+XM4 net63 net64 net65 net66 sg13_hv_pmos w=1.0u l=0.72u ng=1 m=1 rfmode=1 mm_ok=1
+XM5 net67 net68 net69 net70 sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM6 net71 net72 net73 net74 sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1 mm_ok=1
+XM7 net75 net76 net77 net78 sg13_lv_nmos w=1.0u l=0.72u ng=1 m=1 rfmode=1 mm_ok=1
+XM8 net79 net80 net81 net82 sg13_lv_pmos w=1.0u l=0.72u ng=1 m=1 rfmode=1 mm_ok=1
+XC3 net83 net84 net85 sub! sg13_hv_svaricap w=3.74u l=0.3u Nx=1 mm_ok=1
+XD9 net86 net87 net88 isolbox l=3.0u w=3.0u
+XQ4 net89 net90 net91 net92 net93 npn13G2_5t Nx=1 mm_ok=1
+XQ5 net94 net95 net96 net97 net98 npn13G2l_5t Nx=1 El=2.5 mm_ok=1
+XQ6 net99 net100 net101 net102 net103 npn13G2v_5t Nx=1 El=1 mm_ok=1
+XQ7 net104 net105 net106 pnpMPA a=2e-12 p=6e-06
+XD10 net107 net108 net109 schottky_nbl1 Nx=1 Ny=1
+XR5 net110 net111 sub! rsil w=0.5e-6 l=0.5e-6 m=1 mm_ok=1
+XC4 net112 net113 sg13_moscap_n w=1.0u l=1.0u m=1 mm_ok=1
+XC5 net114 net115 sg13_moscap_p w=1.0u l=1.0u m=1 mm_ok=1
+**.ends
+.GLOBAL sub!
+.end

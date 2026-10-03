@@ -1,0 +1,26 @@
+* Qucs 26.1.1  /foss/designs/LNA/MkIII/Schematic/Output Buffer/OutputBuffer_Transient_Testing_MkIII.sch
+.INCLUDE "/foss/tools/qucs-s/share/qucs-s/xspice_cmlib/include/ngspice_mathfunc.inc"
+.INCLUDE "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/design.ngspice"
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" bjt_typical
+.INCLUDE "/foss/designs/LNA/MkIII"
+V1 _net0 _net1 DC 0 SIN(0 10M 1.7G 0 0 0) AC 10M ACPHASE 0
+V2 _net1 0 DC 2.5
+R1 _net2 _net0  10K tc1=0.0 tc2=0.0 
+V3 _net3 0 DC 5
+R2 _net4 _net3  1K tc1=0.0 tc2=0.0 
+C1 _net4 _net5  10P 
+R3 0 _net5  50 tc1=0.0 tc2=0.0 
+
+
+XQ1 _net4  _net2  0  0 NPN_10P00X10P00 
+
+.control
+
+tran 1.0005e-11 2e-08 0 
+destroy all
+reset
+
+exit
+.endc
+.END
