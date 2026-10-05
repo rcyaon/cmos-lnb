@@ -48,6 +48,7 @@ The front-end provides impedance conversion from the 50Ω circuit input impedanc
 #### Impedance Matching Network
 
 ![Impedance Matching Network Schematic](Images/Matching_Network.png)
+
 *Most Up-To-Date Schematic: Schematic/Impedance Matching/ImpedanceMatchingMkII.sch*
 
 Impedance conversion is performed in order to gain voltage headroom on the low-amplitude input signal, and bring it closer to the ~10kΩ input impedance of the nMOS gain stage gates ([gain stage input impedance]()).  The specified impedance matching network is designed to bring the 50Ω characteristic impedance input to approximately 500Ω to drive the succeeding gain stages.  The topology, seen in the figure above, was selected as L topology centered around 1.7GHz (the GOES HRIT frequency).  This simplicity of this matching network makes it possible to manufacture it on chip.  A 500Ω output impedance was selected in order to limit the size of the inductor in the matching network, making it possible to integrate the entire device onto the chip.  This also decrease the contribution of thermal noise on the layout terminating resistor.  The trade off of this decision is that the available voltage gain is also limited.
@@ -65,11 +66,13 @@ It is projected that this impedance matching network would consume ~20,000 um<su
 #### CMOS Gain Stage
 
 ![Gain Stage Schematic](Images/Gain_Stage.png)
+
 *Most Up-To-Date Schematic: Schematic/Gain Stage/GainStageMkI.sch*
 
 The CMOS gain stage increases the voltage level of the input signal.  A net power loss is incurred through the CMOS stages of the low noise block.  The power is "recovered" as the signal is buffered out by the output stage in the frequency converter.  The gain stage is a cascoded class A nMOS amplifier with active loading and an integrated common mode output controller.  Three identical gain stages are ganged together to provide the necessary voltage gain in the front-end.
 
 ![PMOS Error Amplifier Schematic](Images/PMOS_Error_Amp.png)
+
 *Most Up-To-Date Schematic: Schematic/Error Amplifier/ErrorAmplifierPMOSMkI.sch*
 
 The common mode output control is achieved with a pMOS operational transconductance amplifier acting as an error amplifier on the output DC level.  Very small transistors are intentionally used on this component in order to limit the frequency response and load capacitance of the error amplifier.  Small transistors suffer from poor matching between identical devices fortunately [Monte Carlo simulations]() showed DC output level errors from mismatch in the control amplifier did not have a significant effect on system performance.  Increasing the size of the devices resulted in poor performance or oscillations in the output due to capacitive loading and coupling through the amplifier.
