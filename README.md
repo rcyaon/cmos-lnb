@@ -162,4 +162,4 @@ After initial design work and preliminary design review it was decided that the 
 
 Preliminary design review performed by Prof. Brad Minch, Rohan Shah and Daniel Theunissen at Olin College of Engineering.   Thank you for all of your help!
 
-Thank you to Tim Edwards for design review and for running the Chipalooza tape-out program!
+Many thanks to Tim Edwards for design review and for running the Chipalooza tape-out program!
