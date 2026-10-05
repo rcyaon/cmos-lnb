@@ -1,11 +1,11 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=83,149,578,426,3.18384,0,0>
+  <View=-237,-32,870,587,2.08397,258,277>
   <Grid=10,10,1>
-  <DataSet=ImpedanceMatchingMkI.dat>
-  <DataDisplay=ImpedanceMatchingMkI.dpl>
+  <DataSet=ImpedanceMatchingMkII.dat>
+  <DataDisplay=ImpedanceMatchingMkII.dpl>
   <OpenDisplay=0>
-  <Script=ImpedanceMatching.m>
+  <Script=ImpedanceMatchingMkII.m>
   <RunScript=0>
   <showFrame=0>
   <FrameText0=Title>
@@ -25,21 +25,20 @@
   <Line -100 -40 0 80 #000080 2 1>
   <Text -90 -30 12 #000000 0 "LowZ">
   <Text -20 -30 12 #000000 0 "HiZ">
-  <Line -40 50 0 -10 #000080 2 1>
 </Symbol>
 <Components>
-  <Port LowImpedance 1 150 240 -23 -50 1 0 "1" 1 "analog" 0>
+  <Port LowImpedance 1 -30 240 -23 -50 1 0 "1" 1 "analog" 0>
   <Port HighImpedance 1 410 240 4 -50 0 2 "2" 1 "analog" 0>
-  <GND * 1 360 360 0 0 0 0>
-  <C C1 1 290 240 -26 -55 1 0 "0.62 pF" 1 "" 0 "neutral" 0>
-  <L L1 1 360 300 -78 -12 0 3 "15.6 nH" 1 "" 0>
+  <C_SPICE C1 1 120 240 -26 -74 0 2 "cap_mim_2f0fF c_width=15u c_length=22u" 0 "" 0 "" 0 "" 0 "" 0 "2" 1 "X" 1>
+  <GND * 1 210 380 0 0 0 0>
+  <INDQ LQ1 1 210 330 17 -26 0 1 "15 nH" 1 "0.7" 1 "100 MHz" 0 "Linear" 0 "26.85" 0>
 </Components>
 <Wires>
-  <360 240 360 270 "" 0 0 0 "">
-  <360 330 360 360 "" 0 0 0 "">
-  <150 240 260 240 "" 0 0 0 "">
-  <360 240 410 240 "" 0 0 0 "">
-  <320 240 360 240 "" 0 0 0 "">
+  <-30 240 90 240 "" 0 0 0 "">
+  <150 240 210 240 "" 0 0 0 "">
+  <210 300 210 240 "" 0 0 0 "">
+  <210 360 210 380 "" 0 0 0 "">
+  <410 240 210 240 "" 0 0 0 "">
 </Wires>
 <Diagrams>
 </Diagrams>

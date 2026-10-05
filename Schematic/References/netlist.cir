@@ -1,0 +1,36 @@
+* Qucs 26.1.1  /foss/designs/LNA/MkIII/Schematic/References/tb_beta_mult_supply.sch
+.INCLUDE "/foss/tools/qucs-s/share/qucs-s/xspice_cmlib/include/ngspice_mathfunc.inc"
+.INCLUDE "/foss/designs/LNA/MkIII/Schematic/References/gf180mcu_models.spice"
+.SUBCKT beta_mult vdd pg ng ns cpret s1 kg 
+.PARAM rp_l = 2.7u
+.PARAM rn_l = 4.07u
+XC1  ng 0 cap_mim_2f0fF c_width=22u c_length=22u
+XR1  ns _net0 0 ppolyf_u_1k r_width=2u r_length=rp_l
+XM1  0 ng ng 0 nfet_06v0 L=2u W=20u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM2  0 ng s1 0 nfet_06v0 L=1u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM3  0 kg pg 0 nfet_06v0 L=1u W=2u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM5  s1 0 vdd vdd pfet_06v0 L=50u W=0.5u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM6  vdd pg ng vdd pfet_06v0 L=2u W=40u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XC2  pg cpret cap_mim_2f0fF c_width=22u c_length=22u
+XM7  pg ng ns 0 nfet_06v0 L=2u W=80u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XM4  pg pg vdd vdd pfet_06v0 L=2u W=40u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XR2  _net0 0 0 nwell r_width=2u r_length=rn_l
+.ENDS
+V1 vdd  0 5
+X1 vdd pg ng ns vdd s1 s1 beta_mult
+
+.control
+
+
+save all @m.x1.xm7.m0[id]
+dc v1 0 6 0.01
+let iref = @m.x1.xm7.m0[id]*1e6
+write tb_beta_mult_supply.raw iref
+
+write spice4qucs.custom1.plot iref
+destroy all
+reset
+
+exit
+.endc
+.END

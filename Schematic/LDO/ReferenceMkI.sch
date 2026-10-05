@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-1844,-232,3911,1444,1,1576,69>
+  <View=-513,-27,1287,979,1.55144,799,383>
   <Grid=10,10,1>
   <DataSet=ReferenceMkI.dat>
   <DataDisplay=ReferenceMkI.dpl>
@@ -39,32 +39,33 @@
   <GND * 1 850 320 0 0 0 0>
   <GND * 1 890 240 0 0 0 0>
   <GND * 1 600 550 0 0 0 0>
-  <C C1 1 730 390 17 -26 0 1 "0.5 pF" 1 "" 0 "neutral" 0>
   <.TR TR1 0 800 680 0 50 0 0 "lin" 1 "0" 1 "1 ms" 1 "200" 0 "Trapezoidal" 0 "2" 0 "1 ns" 0 "1e-16" 0 "150" 0 "0.001" 0 "1 pA" 0 "1 uV" 0 "26.85" 0 "1e-3" 0 "1e-6" 0 "1" 0 "CroutLU" 0 "no" 0 "yes" 0 "0" 0>
   <SpiceInclude SpiceInclude1 0 270 690 -37 16 0 0 "/foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice" 1 "" 0 "" 0 "" 0 "" 0>
   <SpiceLib SpiceLib1 0 246 866 -14 16 0 0 "/foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" 1 "bjt_typical" 1>
   <SpiceLib SpiceLib2 0 246 776 -14 16 0 0 "/foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" 1 "ss" 1>
   <MOS_SPICE X2 1 850 200 -26 34 0 0 "X" 1 "4" 1 "nmos" 1 "nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
-  <R R2 1 600 500 15 -26 0 1 "10 kOhm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "US" 0>
   <GND * 1 150 550 0 0 0 0>
-  <C C2 1 280 390 17 -26 0 1 "0.5 pF" 1 "" 0 "neutral" 0>
-  <R R3 1 150 420 15 -26 0 1 "10 kOhm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "US" 0>
-  <R R4 1 150 500 15 -26 0 1 "15 kOhm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "US" 0>
   <Sub SUB1 1 490 300 -26 78 0 0 "./Schematic/LDO/LDOMkI.sch" 0>
   <Sub SUB2 1 40 300 -26 78 0 0 "./Schematic/LDO/LDOMkI.sch" 0>
-  <R R1 1 600 420 15 -26 0 1 "20 kOhm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "US" 0>
   <Port 2V0 1 280 290 12 -23 1 3 "1" 1 "analog" 0>
   <Port 3V5 1 730 290 12 -23 1 3 "2" 1 "analog" 0>
   <Port VDD 1 40 40 -72 -23 0 3 "3" 1 "analog" 0>
   <Port BandGap 1 -70 140 -73 -23 0 3 "4" 1 "analog" 0>
   <Port TBias 1 850 70 -72 -23 0 3 "5" 1 "analog" 0>
+  <C_SPICE C2 1 280 390 17 -26 0 1 "cap_mim_2f0fF c_width=11u c_length=22u" 0 "" 0 "" 0 "" 0 "" 0 "2" 1 "X" 1>
+  <C_SPICE C3 1 730 390 17 -26 0 1 "cap_mim_2f0fF c_width=11u c_length=22u" 0 "" 0 "" 0 "" 0 "" 0 "2" 1 "X" 1>
+  <R_SPICE R5 1 150 420 15 -26 0 1 "ppolyf_u_1k r_width=2u r_length=20u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
+  <R_SPICE R6 1 600 500 15 -26 0 1 "ppolyf_u_1k r_width=2u r_length=20u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
+  <R_SPICE R7 1 150 500 15 -26 0 1 "ppolyf_u_1k r_width=2u r_length=30u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
+  <R_SPICE R8 1 600 420 15 -26 0 1 "ppolyf_u_1k r_width=2u r_length=40u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
+  <GND * 1 100 550 0 0 0 0>
+  <GND * 1 550 550 0 0 0 0>
 </Components>
 <Wires>
   <850 70 850 160 "" 0 0 0 "">
   <850 230 850 320 "" 0 0 0 "">
   <870 200 890 200 "" 0 0 0 "">
   <890 200 890 240 "" 0 0 0 "">
-  <600 530 600 550 "" 0 0 0 "">
   <600 460 600 470 "" 0 0 0 "">
   <730 420 730 460 "" 0 0 0 "">
   <850 160 850 170 "" 0 0 0 "">
@@ -110,6 +111,15 @@
   <730 290 730 340 "" 0 0 0 "">
   <-70 140 -70 210 "" 0 0 0 "">
   <40 40 40 70 "" 0 0 0 "">
+  <600 530 600 550 "" 0 0 0 "">
+  <570 420 550 420 "" 0 0 0 "">
+  <550 420 550 500 "" 0 0 0 "">
+  <550 500 570 500 "" 0 0 0 "">
+  <550 500 550 550 "" 0 0 0 "">
+  <120 420 100 420 "" 0 0 0 "">
+  <100 420 100 500 "" 0 0 0 "">
+  <100 500 100 550 "" 0 0 0 "">
+  <120 500 100 500 "" 0 0 0 "">
 </Wires>
 <Diagrams>
 </Diagrams>
