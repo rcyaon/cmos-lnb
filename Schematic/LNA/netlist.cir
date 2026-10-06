@@ -1,0 +1,137 @@
+* Qucs 26.1.1  /foss/designs/LNA/MkIII/Schematic/LNA/LNA_Testing_Compression_MkI.sch
+.INCLUDE "/foss/tools/qucs-s/share/qucs-s/xspice_cmlib/include/ngspice_mathfunc.inc"
+.INCLUDE "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/design.ngspice"
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" bjt_typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" cap_mim
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" mimcap_typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" res_typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" FF
+.SUBCKT OutputBufferMkVI _net0 _net2 _net1 _net3 
+XQ1 _net0  _net1  _net2  0 NPN_10P00X10P00 m=1
+XR3 0  _net2  0 ppolyf_u_1k r_width=2u r_length=2u
+.ENDS
+.SUBCKT ErrorAmplifierPMOSMkII _net2 _net0 _net3 _net4 _net1 
+X8 _net5  _net0  _net3  _net4 pfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X11 _net5  _net2  _net6  _net4 pfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X1 _net3  _net6  0  0 nfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X13 _net6  _net6  0  0 nfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X12 _net4  _net1  _net5  _net4 pfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT GainStageMkII _net0 _net4 _net1 _net2 _net3 _net5 
+XSUB1 _net2 _net4 _net6 _net0 _net5 ErrorAmplifierPMOSMkII
+X15 _net0  _net6  _net7  _net0 pfet_03v3 L=0.28u W=20.0u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X13 _net2  _net3  _net8  0 nfet_03v3 L=0.28u W=20.0u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X16 _net8  _net1  0  0 nfet_03v3 L=0.28u W=20.0u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XR1 _net2  _net7  0 ppolyf_s r_width=1u r_length=10u
+.ENDS
+.SUBCKT InputBufferMkI _net3 _net6 _net5 _net1 _net4 _net0 
+XSUB1 _net0 _net1 _net2 _net3 _net4 ErrorAmplifierPMOSMkII
+X1 _net3  _net2  _net0  _net3 pfet_03v3 L=0.28u W=20.0u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X2 _net0  _net5  _net6  0 nfet_03v3 L=0.28u W=20.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XR2 0  _net6  0 ppolyf_s r_width=1u r_length=9u
+.ENDS
+.SUBCKT ErrorAmplifierNMOSMkI _net2 _net0 _net3 _net4 _net1 
+X1 _net4  _net5  _net5  _net4 pfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X2 _net4  _net5  _net3  _net4 pfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X3 _net3  _net0  _net6  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X4 _net6  _net1  0  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X5 _net5  _net2  _net6  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT LDOMkI _net0 _net1 _net2 _net3 _net4 
+XSUB1 _net2 _net1 _net5 _net0 _net4 ErrorAmplifierNMOSMkI
+X1 _net0  _net5  _net3  _net0 pfet_06v0 L=10u W=40u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT ReferenceMkI _net6 _net4 _net1 _net2 _net0 
+X2 _net0  _net0  0  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XSUB1 _net1 _net2 _net3 _net4 _net0 LDOMkI
+XSUB2 _net1 _net2 _net5 _net6 _net0 LDOMkI
+XC2 _net6  _net5 cap_mim_2f0fF c_width=11u c_length=22u
+XC3 _net4  _net3 cap_mim_2f0fF c_width=11u c_length=22u
+XR5 _net5  _net6  0 ppolyf_u_1k r_width=1u r_length=10u
+XR7 0  _net5  0 ppolyf_u_1k r_width=1u r_length=24u
+XR8 _net3  _net4  0 ppolyf_u_1k r_width=1u r_length=15u
+XR6 0  _net3  0 ppolyf_u_1k r_width=2u r_length=10u
+.ENDS
+.SUBCKT LNAMkII _net6 _net7 _net2 _net3 
+XC4 _net0  0 cap_mim_2f0fF c_width=22u c_length=22u
+I1 _net1 0 DC 10U
+XSUB8 _net2 _net3 _net4 _net2 OutputBufferMkVI
+XC7 _net5  0 cap_mim_2f0fF c_width=40u c_length=40u
+XSUB6 _net2 _net5 _net8 _net9 _net0 _net1 GainStageMkII
+XSUB14 _net2 _net5 _net9 _net4 _net0 _net1 GainStageMkII
+X1 _net2  _net1  _net1  _net2 pfet_03v3 L=0.5u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XSUB15 _net2 _net6 _net5 _net5 _net1 _net8 InputBufferMkI
+XSUB16 _net5 _net0 _net2 _net7 _net10 ReferenceMkI
+I2 _net2 _net10 DC 10U
+.ENDS
+.PARAM sw_stat_global = 0
+.PARAM sw_stat_mismatch = 0
+.PARAM fnoicor = 1
+.PARAM p_val = -60
+
+
+
+
+
+V2 _net0 0 DC 1.2
+C1 input _net1  10P 
+C2 _net2 output  10P 
+R2 0 input  100K tc1=0.0 tc2=0.0 
+V1 _net3 0 DC 3.3
+XSUB1 _net1 _net0 _net3 _net2 LNAMkII
+
+R1 output 0  50 tc1=0.0 tc2=0.0 
+VP1 input 0 dc 0 ac '2*sqrt(2)*sqrt(50/1000)*pow(10,({p_val})/20)' SIN(0 '2*sqrt(2)*sqrt(50/1000)*pow(10,({p_val})/20)' 1.7G 0 0) portnum 1 z0 50
+
+.control
+
+tran 5e-11 1e-06 0
+set specwindow=hanning
+linearize v(input) v(output) 
+fft v(input) v(output) 
+let max_out = vecmax(mag(v(output)))
+let max_in = vecmax(mag(v(input)))
+let gain = max_out/max_in
+write spice4qucs.fft1.plot v(input) v(output) max_out max_in gain
+destroy all
+reset
+
+let start_p = -60
+let stop_p = 30
+let step_p = 10
+let p_cur = start_p
+
+let gain_array = vector(7)
+
+let idx = 0
+
+set appendwrite
+
+while p_cur <= stop_p
+  
+  alterparam P_val = $&p_cur
+  reset
+  
+  ac lin 10 100M 2G
+
+  *write gain_array.raw gain_mag(v(output)[0]) / mag(v(input)[0])
+
+  let gain = v(output)[1] / v(input)[1]
+
+  write compression.raw v(output)[1] v(input)[1] gain
+  
+  let p_cur = p_cur + step_p
+  let idx = idx + 1
+end
+
+unset appendwrite
+
+
+let gain = ac.v(output)[1] / ac.v(input)[1]
+write spice4qucs.custom1.plot gain
+destroy all
+reset
+
+exit
+.endc
+.END

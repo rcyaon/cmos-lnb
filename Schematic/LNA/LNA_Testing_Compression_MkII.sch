@@ -1,11 +1,11 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-1587,-451,2953,2087,0.347124,0,0>
+  <View=-1587,-498,2953,2087,0.744091,878,0>
   <Grid=10,10,1>
-  <DataSet=LNA_Testing_S_Parameters_MkII.dat>
-  <DataDisplay=LNA_Testing_S_Parameters_MkII.dpl>
+  <DataSet=LNA_Testing_Compression_MkII.dat>
+  <DataDisplay=LNA_Testing_Compression_MkII.dpl>
   <OpenDisplay=0>
-  <Script=LNA_Testing_S_Parameters_MkII.m>
+  <Script=LNA_Testing_Compression_MkII.m>
   <RunScript=0>
   <showFrame=0>
   <FrameText0=Title>
