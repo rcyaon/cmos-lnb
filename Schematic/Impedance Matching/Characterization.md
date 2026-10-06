@@ -1,13 +1,8 @@
 # Impedance Matching Network
-
-![Impedance Matching Network Schematic](Images/Matching_Network.png)
-
-*Most Up-To-Date Schematic: Schematic/Impedance Matching/ImpedanceMatchingMkII.sch*
-
 ## Inductor Simulations
 ### S Parameters, Reactance, Inductance, Quality Factor
 
-![Inductor Simulation Render](Images/Inductor_Render.png)
+![Inductor Simulation Render](/Images/Inductor_Render.png)
 A planar inductor on the GF180MCU chip stack up of comparable value to the device proposed for the project was simulated with the parameters below.
 
 | Parameter                           | Value     | 
@@ -23,21 +18,29 @@ A planar inductor on the GF180MCU chip stack up of comparable value to the devic
 | Number of Layers                    | 2         |
 
 These parameters are based on the below specification available on [Google's website](https://opensource.googleblog.com/2022/08/GlobalFoundries-joins-Googles-open-source-silicon-initiative.html).
-![GF180MCU Stack Up](Images/Stack_Up.png)
+
+![GF180MCU Stack Up](/Images/Stack_Up.png)
 
 Full wave electromagnetics simulations using OpenEMS were run, generating the following results.
 
-![Inductor Graphs](Images/Inductor_Graphs.png)
+![Inductor Graphs](/Images/Inductor_Graphs.png)
 
-This shows that an inductor of an adequate value could be created on chip and used for impedance matching in the LNA.  More detailed simulations of the inductor will take place during the layout period and include further geometry such as that of the pad ring, the MiM capacitor in the matching network and bondwires on the chip, performance of this device is likely to change.
+This shows that an inductor of an adequate value could be created on chip and used for impedance matching in the LNA.  More detailed simulations of the inductor will take place during the layout period and include further geometry such as that of the pad ring, the MiM capacitor in the matching network and bond wires on the chip, performance of this device is likely to change.
 
 
 ### Packaging Simulations
 *Coming in the Layout Phase*
 
 ## Circuit
+
+![Impedance Matching Network Schematic](/Images/Matching_Network.png)
+
+*Most Up-To-Date Schematic: Schematic/Impedance Matching/ImpedanceMatchingMkII.sch*
+
+The most up-to-date version of the impedance matching network features a PDK modeled capacitor and a lossy inductor of the correct value to form the correct L matching network.  The high frequency behavior of the capacitor can be seen in the Schematic/Impedance Matching/Capacitor.sch file.  The s-parameter behavior of the inductor from the full wave simulation can be viewed (by way of an exported S2P file) in the Schematic/Impedance Matching/Capacitor.sch file.  The S2P file was not used in the current impedance matching network schematic for the full schematic because although the value is similar, it does not reflect the actual value that will be used in the final design and because it drastically slows (especially transient) simulation performance.  The simulated Q of the inductor from the full wave model was used for the spice model of the schematic being currently used.
+
 ### S Parameters
-![Impedance Matching S Parameters](Images/Impedance_Matching_S_Parameters.png)
+![Impedance Matching S Parameters](/Images/Impedance_Matching_S_Parameters.png)
 
 | Parameter                           | Minimum   | Typical   | Maximum |
 | ----------------------------------- | --------- | --------- | ------- |
