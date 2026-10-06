@@ -149,8 +149,8 @@ In order to obtain reasonable performance, the amplifier was narrow-banded to ar
 | Frequency Range          | 300 MHz | 1.7 GHz | 2 GHz   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Power Gain               | 9 dB    | 13 dB   | 21 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Noise Figure             | --      | --      | --      | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
-| Input Return Loss (S11)  | -1 dB   | -13 dB  | -26 dB  | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
-| Output Return Loss (S22) | -2 dB   | -3 dB   | -3 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
+| Input Return Loss (S11)  | -13 dB  | -15 dB  | -17 dB  | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
+| Output Return Loss (S22) | -5 dB   | -7 dB   | -9 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Output P1dB              |         |         |         | [Compression Test Bench]()       |
 | Output IP3               |         |         |         | [Linearity Test Bench]()         |
 | Output IP2               |         |         |         | [Linearity Test Bench]()         |
