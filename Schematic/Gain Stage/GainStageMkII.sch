@@ -1,11 +1,11 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-1345,-381,2118,526,1.7284,1772,0>
+  <View=-832,-440,769,455,0.984358,0,0>
   <Grid=10,10,1>
-  <DataSet=GainStageMkI.dat>
-  <DataDisplay=GainStageMkI.dpl>
+  <DataSet=GainStageMkII.dat>
+  <DataDisplay=GainStageMkII.dpl>
   <OpenDisplay=0>
-  <Script=AmpCore.m>
+  <Script=GainStageMkII.m>
   <RunScript=0>
   <showFrame=0>
   <FrameText0=Title>
@@ -47,15 +47,16 @@
   <Port CBias 1 -20 90 -23 12 0 0 "5" 1 "analog" 0>
   <Port Com 1 -290 -140 -23 -50 1 0 "2" 1 "analog" 0>
   <Port TBias 1 -50 -140 4 -50 0 2 "6" 1 "analog" 0>
-  <Sub SUB1 1 -170 -190 -26 78 0 0 "./Schematic/Error Amplifier/ErrorAmplifierPMOSMkI.sch" 0>
-  <GND * 1 100 380 0 0 0 0>
-  <MOS_SPICE X13 1 100 90 -26 34 0 0 "X" 1 "4" 1 "nmos" 1 "nfet_06v0 L=0.6u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
-  <MOS_SPICE X16 1 100 250 -26 34 0 0 "X" 1 "4" 1 "nmos" 1 "nfet_06v0 L=0.6u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
-  <MOS_SPICE X15 1 100 -190 -26 34 0 0 "X" 1 "4" 1 "pmos" 1 "pfet_06v0 L=0.6u W=10.0u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
-  <R R1 1 240 -160 15 -26 0 1 "5 kOhm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "US" 0>
+  <GND * 1 100 390 0 0 0 0>
+  <Sub SUB1 1 -170 -190 -26 78 0 0 "./Schematic/Error Amplifier/ErrorAmplifierPMOSMkII.sch" 0>
+  <MOS_SPICE X15 1 100 -190 -26 34 0 0 "X" 1 "4" 1 "pmos" 1 "pfet_03v3 L=0.28u W=20.0u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
+  <MOS_SPICE X13 1 100 90 -26 34 0 0 "X" 1 "4" 1 "nmos" 1 "nfet_03v3 L=0.28u W=20.0u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
+  <MOS_SPICE X16 1 100 250 -26 34 0 0 "X" 1 "4" 1 "nmos" 1 "nfet_03v3 L=0.28u W=20.0u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
+  <GND * 1 50 0 0 0 0 0>
+  <R_SPICE R1 1 100 -20 15 -26 0 1 "ppolyf_s r_width=1u r_length=10u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
 </Components>
 <Wires>
-  <100 280 100 380 "" 0 0 0 "">
+  <100 280 100 390 "" 0 0 0 "">
   <120 250 160 250 "" 0 0 0 "">
   <160 250 160 290 "" 0 0 0 "">
   <120 90 160 90 "" 0 0 0 "">
@@ -77,16 +78,15 @@
   <-90 -140 -50 -140 "" 0 0 0 "">
   <-330 -190 -250 -190 "" 0 0 0 "">
   <100 50 100 60 "" 0 0 0 "">
-  <100 -160 100 -60 "" 0 0 0 "">
   <100 50 200 50 "" 0 0 0 "">
-  <-330 50 -330 -190 "" 0 0 0 "">
-  <240 -190 240 -240 "" 0 0 0 "">
-  <240 -240 140 -240 "" 0 0 0 "">
-  <240 -130 240 -60 "" 0 0 0 "">
-  <100 -60 100 50 "" 0 0 0 "">
-  <240 -60 100 -60 "" 0 0 0 "">
+  <-330 -190 -330 50 "" 0 0 0 "">
+  <100 -160 100 -50 "" 0 0 0 "">
+  <100 10 100 50 "" 0 0 0 "">
+  <50 -20 70 -20 "" 0 0 0 "">
+  <50 -20 50 0 "" 0 0 0 "">
 </Wires>
 <Diagrams>
 </Diagrams>
 <Paintings>
+  <Text -150 -260 12 #000000 0 "pMOS Error Amplifier">
 </Paintings>

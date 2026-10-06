@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-743,-665,1355,541,0.908942,38,215>
+  <View=-743,-739,1355,674,0.751192,0,180>
   <Grid=10,10,1>
   <DataSet=PassiveTest.dat>
   <DataDisplay=PassiveTest.dpl>
@@ -37,8 +37,8 @@
   <GND * 1 -20 330 0 0 0 0>
   <NutmegEq NutmegEq4 1 -300 60 -31 16 0 0 "ALL" 1 "inductance=z_2_1 / (2 * pi * frequency)" 1>
   <NutmegEq NutmegEq3 1 -300 -30 -31 16 0 0 "ALL" 1 "capacitance=1 / (2 * pi * frequency * z_2_1)" 1>
-  <R_SPICE R3 0 -290 250 15 -26 0 1 "ppolyf_u_1k r_width=1u r_length=0.5u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
-  <C_SPICE C3 1 120 250 17 -26 0 1 "cap_mim_2f0fF c_width=15u c_length=22u" 0 "" 0 "" 0 "" 0 "" 0 "2" 1 "X" 1>
+  <C_SPICE C3 0 120 250 17 -26 0 1 "cap_mim_2f0fF c_width=15u c_length=22u" 0 "" 0 "" 0 "" 0 "" 0 "2" 1 "X" 1>
+  <R_SPICE R3 1 -290 250 15 -26 0 1 "ppolyf_u_1k r_width=1u r_length=20u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
 </Components>
 <Wires>
   <-490 270 -490 290 "" 0 0 0 "">
@@ -68,6 +68,7 @@
   </Rect>
   <Rect 120 91 544 291 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 0 500 2000 1 -1 0.5 1 315 0 225 1 0 0 "" "" "">
 	<"ngspice/ac.z_2_1" #0000ff 1 3 0 0 0>
+	  <Mkr 2.26185e+09 306 -317 3 0 0>
 	<"ngspice/ac.capacitance" #ff0000 1 3 0 0 0>
   </Rect>
   <Rect 770 91 544 291 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 -100 200 1100 1 -1 0.5 1 315 0 225 1 0 0 "" "" "">

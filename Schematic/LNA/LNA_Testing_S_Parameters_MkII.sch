@@ -1,11 +1,11 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-13517,-63,4972,1522,0.555992,6913,0>
+  <View=-7896,-477,6308,2169,0.584549,4232,546>
   <Grid=10,10,1>
-  <DataSet=LNA_Testing_S_Parameters_MkI.dat>
-  <DataDisplay=LNA_Testing_S_Parameters_MkI.dpl>
+  <DataSet=LNA_Testing_S_Parameters_MkII.dat>
+  <DataDisplay=LNA_Testing_S_Parameters_MkII.dpl>
   <OpenDisplay=0>
-  <Script=LNA_Testing_S_Parameters_MkI.m>
+  <Script=LNA_Testing_S_Parameters_MkII.m>
   <RunScript=0>
   <showFrame=0>
   <FrameText0=Title>
@@ -34,15 +34,15 @@
   <GND * 1 684 3 0 0 0 0>
   <.SP SP1 1 -356 143 0 50 0 0 "lin" 1 "1 MHz" 1 "5 GHz" 1 "200" 1 "yes" 0 "1" 0 "2" 0 "no" 0 "no" 0>
   <NutmegEq NutmegEq3 1 514 153 -31 16 0 0 "ALL" 1 "delta=(s_1_1 * s_2_2) - (s_1_2 * s_2_1)" 1 "rollett=(1 - (abs(s_1_1) ^ 2) - (abs(s_2_2) ^ 2) + (abs(delta) ^ 2))  / max((2 * abs(s_1_2 * s_2_1)), 0.000000001)" 1 "mu=(1 - (abs(s_1_1) ^ 2))  / ( abs((s_2_2 - (delta * conj(s_1_1)))) + abs(s_1_2 * s_2_1) )" 1>
-  <NutmegEq NutmegEq2 1 64 163 -31 16 0 0 "SP1" 1 "s11_db=dB(s_1_1)" 1 "s21_db=dB(s_2_1)" 1 "s12_db=dB(s_1_2)" 1 "s22_db=dB(s_2_2)" 1 "nf_db=10 * log( cy_2_2 / ( boltz * 10 * (z_2_1 ^ 2) ))" 1>
   <R R1 1 754 -97 -26 15 0 0 "100 kOhm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "US" 0>
   <GND * 1 814 -87 0 0 0 0>
   <R R2 1 134 -97 -26 15 0 0 "100 kOhm" 1 "26.85" 0 "0.0" 0 "0.0" 0 "26.85" 0 "US" 0>
   <GND * 1 64 -77 0 0 0 0>
   <SpicePar SpicePar1 1 -156 163 -29 16 0 0 "sw_stat_global=0" 1 "sw_stat_mismatch=0" 1 "fnoicor=1" 1>
-  <SpiceLib SpiceLib5 1 -640 -311 -14 16 0 0 "/foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" 1 "typical" 1>
   <Vdc V1 1 254 -247 18 -26 0 1 "3.3 V" 1>
   <Sub SUB1 1 454 -97 -26 88 0 0 "Schematic/LNA/LNAMkII.sch" 0>
+  <NutmegEq NutmegEq2 1 64 163 -31 16 0 0 "SP1" 1 "s11_db=dB(s_1_1)" 1 "s21_db=dB(s_2_1)" 1 "s12_db=dB(s_1_2)" 1 "s22_db=dB(s_2_2)" 1 "nf_db=10 * log( cy_2_2 / ( boltz * 10 * (y_2_1 ^ 2) ))" 1>
+  <SpiceLib SpiceLib5 1 -640 -311 -14 16 0 0 "/foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" 1 "FF" 1>
 </Components>
 <Wires>
   <-26 -147 -26 -127 "" 0 0 0 "">
@@ -64,37 +64,34 @@
   <64 -97 64 -77 "" 0 0 0 "">
 </Wires>
 <Diagrams>
-  <Rect -250 785 585 365 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 -18 2 2 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
+  <Rect -260 785 585 365 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 -21.713 5 1.96421 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
 	<"ngspice/ac.s11_db" #0000ff 0 3 0 0 0>
 	  <Mkr 9.05342e+08 189 -347 3 0 0>
-	  <Mkr 1.88505e+09 295 -94 3 0 0>
+	  <Mkr 1.7092e+09 35 -64 3 0 0>
 	  <Mkr 2.01065e+09 325 -199 3 0 0>
-	  <Mkr 1.7092e+09 34 -96 3 0 0>
   </Rect>
-  <Rect 489 792 580 362 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 -40 20 40 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
+  <Rect 489 792 580 362 3 #c0c0c0 1 00 1 0 5e+08 5e+09 0 -40 20 40 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
 	<"ngspice/ac.s21_db" #0000ff 0 3 0 0 0>
-	  <Mkr 9.05342e+08 154 -102 3 0 0>
+	  <Mkr 9.05342e+08 144 -192 3 0 0>
 	  <Mkr 1.7092e+09 229 -339 3 0 0>
 	  <Mkr 2.01065e+09 347 -277 3 0 0>
   </Rect>
-  <Rect -253 1237 588 367 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 -8 1 1 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
+  <Rect -253 1237 588 367 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 -8.67355 2 0.778861 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
 	<"ngspice/ac.s22_db" #0000ff 0 3 0 0 0>
 	  <Mkr 9.30462e+08 133 -336 3 0 0>
-	  <Mkr 1.7092e+09 283 -93 3 0 0>
-	  <Mkr 2.01065e+09 347 -286 3 0 0>
+	  <Mkr 1.7092e+09 273 -253 3 0 0>
+	  <Mkr 2.01065e+09 417 -176 3 0 0>
   </Rect>
-  <Rect 479 2178 580 368 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 13.6949 10 92.1059 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
+  <Rect 1449 778 580 368 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 -6.36762 20 168.531 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
 	<"ngspice/ac.nf" #0000ff 0 3 0 0 0>
+	<"ngspice/ac.nf_db" #ff0000 1 3 0 0 0>
   </Rect>
-  <Rect -255 1700 591 361 3 #c0c0c0 1 00 0 0 5e+08 1e+09 0 -40 40 160 1 -1 1 1 315 0 225 1 0 0 "" "" "">
-	<"ngspice/ac.rollett" #0000ff 1 3 0 0 0>
-	  <Mkr 5.78774e+08 382 -109 3 0 0>
-  </Rect>
-  <Rect 480 1706 578 366 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 0.8 0.2 2.64716 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
+  <Rect 490 2046 585 376 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 0.8 0.2 2.62688 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
 	<"ngspice/ac.mu" #0000ff 1 3 0 0 0>
   </Rect>
-  <Rect -250 2151 578 361 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 -77339.6 200000 851069 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
+  <Rect -260 2041 578 361 3 #c0c0c0 1 00 1 0 5e+08 5e+09 0 -10000 10000 100000 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
 	<"ngspice/ac.rollett" #0000ff 1 3 0 0 0>
+	  <Mkr 4.78291e+08 155 -303 3 0 0>
   </Rect>
   <Rect 487 1237 588 367 3 #c0c0c0 1 00 1 0 5e+08 5e+09 1 -8.7474 2 0.785543 1 -1 0.2 1 315 0 225 1 0 0 "" "" "">
 	<"ngspice/ac.s12_db" #0000ff 0 3 0 0 0>
