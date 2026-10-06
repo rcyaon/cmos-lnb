@@ -55,11 +55,11 @@ Impedance conversion is performed in order to gain voltage headroom on the low-a
 
 ![Inductor Simulation Render](Images/Inductor_Render.png)
 
-The inductor, simulated in OpenEMS, is a two layer spiral inductor (shown above) on the M4 and M5 metal layers ([OpenEMS results]()).
+The inductor, simulated in OpenEMS, is a two layer spiral inductor (shown above) on the M4 and M5 metal layers ([OpenEMS results](Schematic/Impedance Matching/Characterization.md)).
 
 *Please note: this design is not final, more consideration will be needed in order to ensure that performance is as high as possible.  The matching network topology deliberately places this series inductor first in order to allow its inductance to combine with the series inductance of the bond wire leading to the pad ring.  Further packaging evaluation must be performed.*
 
-[Network analysis of the matching performance](Simulation/Impedance Matching/Characterization.md) was performed.  Further simulation work, including Monte Carlo / variance analysis including the inductor and capacitor as well as (hopefully) layout-level full wave electromagnetic simulations will be done during the layout phase of the project.
+[Network analysis of the matching performance](Schematic/Impedance Matching/Characterization.md) was performed.  Further simulation work, including Monte Carlo / variance analysis including the inductor and capacitor as well as (hopefully) layout-level full wave electromagnetic simulations will be done during the layout phase of the project.
 
 It is projected that this impedance matching network would consume ~20,000 um<sup>2</sup> of die space.  Given the large size of this network and the size constraints on the Chipalooza tape out, it is also possible to remove the matching network from the die and install externally using discrete components.  In addition to saving space, external matching would most likely allow for higher performance and better characterization of the active devices.
 
