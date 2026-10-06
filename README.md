@@ -133,25 +133,30 @@ The active balun converts the amplified single ended signal from the front-end i
 
 ## Low Noise Amplifier
 
+
+![LNA Block Diagram](/Images/LNA_Block_Diagram.png)
+
+*Most Up-To-Date Schematic: Schematic/LNA/LNAMkI.sch*
+
 ### Architecture
 
 After initial design work and preliminary design review it was decided that the full down converter is potentially too ambitious for an initial tape out.  We have many questions regarding process performance at high frequencies, low performance in the frequency converter chain and concerns of electromagnetic coupling within the the chip, which would be very difficult to accurately simulate using open source tools, causing the circuit to oscillate.  In light of this, we are considering a pivot towards first taping out a dedicated low-noise amplifier covering a similar frequency band.  This design reuses the front-end module from the down converter, adding an additional gain stage in order to increase overall gain, and the output buffer.  The frequency converter is dropped and the dedicated pins normally allocated to the local oscillator will be re-used for devices useful for characterizing the die packaging.  This will allow for detailed characterization of the high frequency performance of the GF180MCU process node and put us on target to tape out the full down converter at a later time.
 
 ### Overall Performance
 
-
+In order to obtain reasonable performance, the amplifier was narrow-banded to around 1.7 GHz, suitable for receiving GOES HRIT and certain HAM radio bands.  Without adding additional inductors to the circuit, enabling the ability to ring out the capacitance of the gain stage transistor gates, it was hard to flatten gain across the full target frequency regime.  One solution to this would be to place a more broadband, higher Q, impedance matching network externally to the chip (or make the internal one more complex, which space requirements would almost certainly render impossible).  This would also save die space. 
 
 | Description              | Minimum | Typical | Maximum | Simulation Results               |
 | ------------------------ | ------- | ------- | ------- | -------------------------------- |
-| Frequency Range          |         |         |         | [S-Parameter Test Bench]()       |
-| Power Gain               |         |         |         | [S-Parameter Test Bench]()       |
-| Noise Figure             |         |         |         | [S-Parameter Test Bench]()       |
-| Input Return Loss (S11)  |         |         |         | [S-Parameter Test Bench]()       |
-| Output Return Loss (S22) |         |         |         | [S-Parameter Test Bench]()       |
+| Frequency Range          | 300 MHz | 1.7 GHz | 2 GHz   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
+| Power Gain               | 9 dB    | 13 dB   | 21 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
+| Noise Figure             | --      | --      | --      | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
+| Input Return Loss (S11)  | -1 dB   | -13 dB  | -26 dB  | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
+| Output Return Loss (S22) | -2 dB   | -3 dB   | -3 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Output P1dB              |         |         |         | [Compression Test Bench]()       |
 | Output IP3               |         |         |         | [Linearity Test Bench]()         |
 | Output IP2               |         |         |         | [Linearity Test Bench]()         |
-|                          |         |         |         |                                  |
+| Gain Flatness            |         |         |         | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | DC Power Consumption     |         |         |         | [Power Consumption Test Bench]() |
 | Voltage Supply           |         |         |         | [Supply Sweep Test Bench]()      |
 | Temperature Stability    |         |         |         | [Temperature Test Bench]()       |
