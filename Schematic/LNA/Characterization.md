@@ -1,6 +1,6 @@
 # Low Noise Amplifier
 
-![LNA Block Diagram](/Images/LNA_Block_Diagram.png)
+![LNA Block Diagram](/Images/LNA_Diagram.png)
 
 *Most Up-To-Date Schematic: Schematic/LNA/LNAMkII.sch*
 
