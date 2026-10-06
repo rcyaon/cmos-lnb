@@ -8,7 +8,7 @@ This project intends to develop an integrated L-band block down converter includ
 
 All components of the design target broadband operation between approximately 300 MHz and 2 GHz, will allow for down conversion of interesting signals in the UHF, L, and S band spectra. An integrated oscillator will provide a switchable L-band local oscillator signal to the mixer, allowing for standalone operation of the circuit as an integrated low-noise block (LNB) for applications such as reception of GOES weather satellite HRIT transmissions, GPS, and amateur radio (23 cm band).
 
-Our goal is to develop this project using only open source tools, as such the toolchain used for this project is:
+Our goal is to develop this project using only open source tools, as such the tool chain used is:
 
 - QUCS-S for schematic design and validation
 - NGSpice for circuit simulation
@@ -17,7 +17,7 @@ Our goal is to develop this project using only open source tools, as such the to
 
 The target performance submitted in the proposal for our project is included in the table below.
 
-| Description                         | Minimum   | Typical   | Maximum |
+| Parameter                           | Minimum   | Typical   | Maximum |
 | ----------------------------------- | --------- | --------- | ------- |
 | Frequency Range                     | 900 MHz   | 1.7 GHz   | 2 GHz   |
 | Power Gain                          | 10 dB     | 18 dB     | 27 dB   |
@@ -59,7 +59,7 @@ The inductor, simulated in OpenEMS, is a two layer spiral inductor (shown above)
 
 *Please note: this design is not final, more consideration will be needed in order to ensure that performance is as high as possible.  The matching network topology deliberately places this series inductor first in order to allow its inductance to combine with the series inductance of the bond wire leading to the pad ring.  Further packaging evaluation must be performed.*
 
-Simulations including [network analysis of the matching performance](), [device noise performance](), and [quality factor evaluation]().  Further work including layout-level full wave electromagnetic simulations will be performed.
+[Network analysis of the matching performance](Simulation/Impedance Matching/Characterization.md) was performed.  Further simulation work, including Monte Carlo / variance analysis including the inductor and capacitor as well as (hopefully) layout-level full wave electromagnetic simulations will be done during the layout phase of the project.
 
 It is projected that this impedance matching network would consume ~20,000 um<sup>2</sup> of die space.  Given the large size of this network and the size constraints on the Chipalooza tape out, it is also possible to remove the matching network from the die and install externally using discrete components.  In addition to saving space, external matching would most likely allow for higher performance and better characterization of the active devices.
 
