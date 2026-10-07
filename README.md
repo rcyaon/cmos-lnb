@@ -131,15 +131,23 @@ The lower output impedance of the NPN bipolar transistors included in the PDK ma
 
 ### Biasing
 
+Biasing for the various circuit elements is provided by two similar, extremely bare-bones, LDOs making use of the harness band gap reference.  
+
 #### Reference
 
 ![Reference](Images/Reference.png)
 
-Two LDO circuit with output voltages set by a high-res poly resistor divider are used to create a 1.7V and 2.5V bias reference on the chip.  The LDOs rely on the band gap voltage reference on the harness in order to generate the correct voltage.  Within the LNB there are some places where the band gap reference is directly used for biasing.  If this is unacceptable due to harnessing constraints, an additional stage buffer stage can be added. 
+*Most Up-To-Date Schematic: Schematic/LDO/ReferenceMkI.sch*
+
+Two LDO circuit with output voltages set by a high-res poly resistor divider are used to create a 1.7V and 2.5V bias reference on the chip.  The LDOs rely on the band gap voltage reference on the harness in order to generate the correct voltage.  Within the LNB there are some places where the band gap reference is directly used for biasing.  If this is unacceptable due to harnessing constraints, an additional stage buffer stage can be added. In the LNB stages the 1.7 V rail generally serves as the reference for the common mode output controllers and the 2.5 V rail serves as a bias point for the cascoded nMOS transistors in the gain stages.  In the Gilbert cell the 1.2 V from the band gap reference is also used.
+
+Testing and characterization of the voltage reference is available [here](Schematic/LDO/Characterization.md).
 
 #### LDO
 
-![nMOS Error Amplifier Schematic](Images/LDO.png)
+![LDO](Images/LDO.png)
+
+*Most Up-To-Date Schematic: Schematic/LDO/LDOMkI.sch*
 
 A simple LDO for biasing was created by adding an output buffer transistor to a five transistor differential amplifier.  The arbitrary output voltage is divided and compared to a reference level.  The reference level in this design is provided by the harness band gap reference.  This basic LDO topology has limited accuracy, but the bias points of these transistors does not need to be extremely accurate.  
 
@@ -160,8 +168,6 @@ Prior to the preliminary design review, this design was characterized at the typ
 
 *Most Up-To-Date Schematic: Schematic/LNA/LNAMkII.sch*
 
-
-
 ### Architecture
 
 After initial design work and preliminary design review it was decided that the full down converter may be too ambitious for an initial tape out.  We have many questions regarding process performance at high frequencies and, more importantly, concerns of electromagnetic coupling within the the chi, which would be very difficult to accurately simulate using open source tools.  If these are not accounted for there is a real risk that the entire circuit will begin to oscillate.  In light of this, we are considering a pivot towards first taping out a dedicated low-noise amplifier covering a similar frequency band.  This design reuses the front-end module from the down converter, adding an additional gain stage in order to increase overall gain, and the output buffer.  The frequency converter is dropped and the dedicated pins normally allocated to the local oscillator will be re-used for devices useful for characterizing the die packaging.  This will allow for detailed characterization of the high frequency performance of the GF180MCU process node and put us on target to tape out the full down converter at a later time.
@@ -169,6 +175,8 @@ After initial design work and preliminary design review it was decided that the 
 ![LNA High Frequency Diagram](/Images/LNA_Diagram.png)
 
 The diagram above shows the working principle of the LNA with biasing removed.
+
+Testing and characterization of the voltage reference is available [here](Schematic/LNA/Characterization.md).
 
 ### Overall Performance
 
