@@ -61,31 +61,31 @@
 ### Typical 
 | 1.7 V | 2.5 V |
 |---------------------|---------------------|
-|![Temperature](/Images/Reference_Temp_1V7_TT.png)|![Temperature](/Images/Reference_Temp_2V5_TT.png)|
+|![Temperature](/Images/Reference_Temp_1v7_TT.png)|![Temperature](/Images/Reference_Temp_2v5_TT.png)|
 
 
 ### Slow-Slow Corner
 | 1.7 V | 2.5 V |
 |---------------------|---------------------|
-|![Temperature](/Images/Reference_Temp_1V7_SS.png)|![Temperature](/Images/Reference_Temp_2V5_SS.png)|
+|![Temperature](/Images/Reference_Temp_1v7_SS.png)|![Temperature](/Images/Reference_Temp_2v5_SS.png)|
 
 
 ### Fast-Fast Corner
 | 1.7 V | 2.5 V |
 |---------------------|---------------------|
-|![Temperature](/Images/Reference_Temp_1V7_FF.png)|![Temperature](/Images/Reference_Temp_2V5_FF.png)|
+|![Temperature](/Images/Reference_Temp_1v7_FF.png)|![Temperature](/Images/Reference_Temp_2v5_FF.png)|
 
 
 ### Slow-Fast Corner
 | 1.7 V | 2.5 V |
 |---------------------|---------------------|
-|![Temperature](/Images/Reference_Temp_1V7_SF.png)|![Temperature](/Images/Reference_Temp_2V5_SF.png)|
+|![Temperature](/Images/Reference_Temp_1v7_SF.png)|![Temperature](/Images/Reference_Temp_2v5_SF.png)|
 
 
 ### Fast-Slow Corner
 | 1.7 V | 2.5 V |
 |---------------------|---------------------|
-|![Temperature](/Images/Reference_Temp_1V7_FS.png)|![Temperature](/Images/Reference_Temp_2V5_FS.png)|
+|![Temperature](/Images/Reference_Temp_1v7_FS.png)|![Temperature](/Images/Reference_Temp_2v5_FS.png)|
 
 
 
