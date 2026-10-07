@@ -138,7 +138,7 @@ The "CalculateOIP3.py" file was used to calculate the amplifier OIP3 from the ex
 ### Typical 
 | Low Power (-30 dBm) | High Power (-20dBm) |
 |---------------------|---------------------|
-|![Compression](/Images/LNA_Linearity_TT.png)|![Compression](/Images/LNA_Linearity_TT_HP.png)|
+|![Linearity](/Images/LNA_Linearity_TT.png)|![Linearity](/Images/LNA_Linearity_TT_HP.png)|
 
 #### Low Power (-30 dBm)
 |Parameter|Value|
@@ -161,7 +161,7 @@ The "CalculateOIP3.py" file was used to calculate the amplifier OIP3 from the ex
 ### Slow-Slow Corner
 | Low Power (-30 dBm) | High Power (-20dBm) |
 |---------------------|---------------------|
-|![Compression](/Images/LNA_Linearity_SS.png)|![Compression](/Images/LNA_Linearity_SS_HP.png)|
+|![Linearity](/Images/LNA_Linearity_SS.png)|![Linearity](/Images/LNA_Linearity_SS_HP.png)|
 
 #### Low Power (-30 dBm)
 |Parameter|Value|
@@ -184,7 +184,7 @@ The "CalculateOIP3.py" file was used to calculate the amplifier OIP3 from the ex
 ### Fast-Fast Corner
 | Low Power (-30 dBm) | High Power (-20dBm) |
 |---------------------|---------------------|
-|![Compression](/Images/LNA_Linearity_FF.png)|![Compression](/Images/LNA_Linearity_FF_HP.png)|
+|![Linearity](/Images/LNA_Linearity_FF.png)|![Linearity](/Images/LNA_Linearity_FF_HP.png)|
 
 #### Low Power (-30 dBm)
 |Parameter|Value|
@@ -207,7 +207,7 @@ The "CalculateOIP3.py" file was used to calculate the amplifier OIP3 from the ex
 ### Slow-Fast Corner
 | Low Power (-30 dBm) | High Power (-20dBm) |
 |---------------------|---------------------|
-|![Compression](/Images/LNA_Linearity_SF.png)|![Compression](/Images/LNA_Linearity_SF_HP.png)|
+|![Linearity](/Images/LNA_Linearity_SF.png)|![Linearity](/Images/LNA_Linearity_SF_HP.png)|
 
 #### Low Power (-30 dBm)
 |Parameter|Value|
@@ -230,7 +230,7 @@ The "CalculateOIP3.py" file was used to calculate the amplifier OIP3 from the ex
 ### Fast-Slow Corner
 | Low Power (-30 dBm) | High Power (-20dBm) |
 |---------------------|---------------------|
-|![Compression](/Images/LNA_Linearity_FS.png)|![Compression](/Images/LNA_Linearity_FS_HP.png)|
+|![Linearity](/Images/LNA_Linearity_FS.png)|![Linearity](/Images/LNA_Linearity_FS_HP.png)|
 
 #### Low Power (-30 dBm)
 |Parameter|Value|
@@ -253,11 +253,116 @@ The "CalculateOIP3.py" file was used to calculate the amplifier OIP3 from the ex
 
 ## DC Power Consumption Test Bench
 
+*Most Up-To-Date Test Bench: Schematic/LNA/LNA_Testing_Power_MkI.sch*
+
+The average and peak DC power consumption of the LNA was characterized when saturated with a 1.7GHz tone.
+
+### Typical 
+![Power Consumption](/Images/LNA_Power_TT.png)
+
+|Parameter|Value|
+|---------|-----|
+| Average DC Power Consumption   | 31 mW |
+| Peak DC Power Consumption   | 44 mW |
+
+
+### Slow-Slow Corner
+
+![Power Consumption](/Images/LNA_Power_SS.png)
+
+|Parameter|Value|
+|---------|-----|
+| Average DC Power Consumption   | 25 mW |
+| Peak DC Power Consumption   | 40 mW |
+
+### Fast-Fast Corner
+
+![Power Consumption](/Images/LNA_Power_FF.png)
+
+|Parameter|Value|
+|---------|-----|
+| Average DC Power Consumption   | 37 mW |
+| Peak DC Power Consumption   | 47 mW |
+
+### Slow-Fast Corner
+
+![Power Consumption](/Images/LNA_Power_SF.png)
+
+|Parameter|Value|
+|---------|-----|
+| Average DC Power Consumption   | 27 mW |
+| Peak DC Power Consumption   | 44 mW |
+
+### Fast-Slow Corner
+
+![Power Consumption](/Images/LNA_Power_FS.png)
+
+|Parameter|Value|
+|---------|-----|
+| Average DC Power Consumption   | 34 mW |
+| Peak DC Power Consumption   | 42 mW |
 
 
 ## Supply Sweep Test Bench
+
+*Most Up-To-Date Test Bench: Schematic/LNA/LNA_Testing_Power_MkI.sch*
+The LNA voltage supply was sweeped between 2 and 4 volts.  As expected, the gain was positively corellated with operating voltage.  The thin oxide on the transistors will break down above 3.3V, but it is good to see the stability margins on the LNA at slightly higher voltage.  The amplifier remained stable across the entire voltage sweep at all corners, which was good.
+
+
+### Typical 
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Supply_Gain_TT.png)|![Supply](/Images/LNA_Supply_Stab_TT.png)|
+
+### Slow-Slow Corner
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Supply_Gain_SS.png)|![Supply](/Images/LNA_Supply_Stab_SS.png)|
+
+### Fast-Fast Corner
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Supply_Gain_FF.png)|![Supply](/Images/LNA_Supply_Stab_FF.png)|
+
+### Slow-Fast Corner
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Supply_Gain_SF.png)|![Supply](/Images/LNA_Supply_Stab_SF.png)|
+
+### Fast-Slow Corner
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Supply_Gain_FS.png)|![Supply](/Images/LNA_Supply_Stab_FS.png)|
 
 
 
 ## Temperature Test Bench
 
+*Most Up-To-Date Test Bench: Schematic/LNA/LNA_Testing_Temp_MkI.sch*
+
+Temperature was sweeped between between -25C and 125C, the automotive component temperature range.  The gain of the LNA fell off somewhat significantly after 80C, although it never stopped providing gain.  This was to be expected because this LNA does not have any temperature compensation (nor does it really have a way to implement that architecturally).  More importantly, the amplifier remained stable across the entire temperature sweep at all corners.
+
+### Typical 
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Temp_Gain_TT.png)|![Supply](/Images/LNA_Temp_Stab_TT.png)|
+
+### Slow-Slow Corner
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Temp_Gain_SS.png)|![Supply](/Images/LNA_Temp_Stab_SS.png)|
+
+### Fast-Fast Corner
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Temp_Gain_FF.png)|![Supply](/Images/LNA_Temp_Stab_FF.png)|
+
+### Slow-Fast Corner
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Temp_Gain_SF.png)|![Supply](/Images/LNA_Temp_Stab_SF.png)|
+
+### Fast-Slow Corner
+| Maximum Gain (dB) | Minimum Rollett Stability Factor |
+|---------------------|---------------------|
+|![Supply](/Images/LNA_Temp_Gain_FS.png)|![Supply](/Images/LNA_Temp_Stab_FS.png)|
