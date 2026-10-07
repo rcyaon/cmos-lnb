@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-10662,-595,4553,947,0.693433,6887,0>
+  <View=-468,-594,1362,429,0.861193,0,0>
   <Grid=10,10,1>
   <DataSet=LDO_Testing_Monte_Carlo_MkI.dat>
   <DataDisplay=LDO_Testing_Monte_Carlo_MkI.dpl>
@@ -30,7 +30,7 @@
   <.DC DC1 1 -260 10 0 31 0 0 "26.85" 0 "0.001" 0 "1 pA" 0 "1 uV" 0 "no" 0 "150" 0 "no" 0 "none" 0 "CroutLU" 0>
   <SpicePar SpicePar1 1 240 20 -29 16 0 0 "sw_stat_global=1" 1 "sw_stat_mismatch=1" 1>
   <SpiceLib SpiceLib5 1 -244 -454 -14 16 0 0 "/foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" 1 "Typical" 1>
-  <.CUSTOMSIM CUSTOM1 1 530 -390 0 31 0 0 "let idx = 0\n\nset appendwrite\n\nset wr_vecnames\nset wr_singlescale \n\nrm /foss/designs/LNA/MkIII/Schematic/LDO/mc_data.csv\n\nwhile idx <= 3000\n  \n  reset\n  \n  op\n  let out_1v7 = v(out1v7)\n  let out_2v5 = v(out2v5)\n  write mc_out.raw out_1v7 out_2v5\n  wrdata /foss/designs/LNA/MkIII/Schematic/LDO/mc_data.csv out_1v7 out_2v5\n  unset wr_vecnames\n  reset\n  \n  let idx = idx + 1\nend\n\nunset appendwrite\n\n" 1 "" 0 "mc_out.raw" 0>
+  <.CUSTOMSIM CUSTOM1 1 530 -390 0 31 0 0 "let idx = 0\n\nset appendwrite\n\nset wr_vecnames\nset wr_singlescale \n\nwhile idx <= 3000\n  \n  reset\n  \n  op\n  let out_1v7 = v(out1v7)\n  let out_2v5 = v(out2v5)\n  write mc_out.raw out_1v7 out_2v5\n  wrdata /foss/designs/LNA/MkIII/Schematic/LDO/mc_data.csv out_1v7 out_2v5\n  unset wr_vecnames\n  reset\n  \n  let idx = idx + 1\nend\n\nunset appendwrite\n\n" 1 "" 0 "mc_out.raw" 0>
 </Components>
 <Wires>
   <310 330 380 330 "Out1V7" 380 370 47 "">
