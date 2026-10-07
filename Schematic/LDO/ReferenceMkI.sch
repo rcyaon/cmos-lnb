@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-1590,-382,2110,1400,0.598146,232,66>
+  <View=-563,-192,637,479,1.31333,0,0>
   <Grid=10,10,1>
   <DataSet=ReferenceMkI.dat>
   <DataDisplay=ReferenceMkI.dpl>
@@ -120,4 +120,6 @@
 <Diagrams>
 </Diagrams>
 <Paintings>
+  <Text -300 80 12 #000000 0 "LDO">
+  <Text 150 80 12 #000000 0 "LDO">
 </Paintings>
