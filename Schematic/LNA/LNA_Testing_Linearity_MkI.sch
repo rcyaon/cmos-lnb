@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-4195,-483,4120,2269,0.459613,1589,44>
+  <View=-5949,-2036,14078,7529,0.556132,2956,883>
   <Grid=10,10,1>
   <DataSet=LNA_Testing_Linearity_MkI.dat>
   <DataDisplay=LNA_Testing_Linearity_MkI.dpl>
