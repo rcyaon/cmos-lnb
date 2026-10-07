@@ -42,7 +42,7 @@
   <Port Output 1 590 220 4 -50 0 2 "4" 1 "analog" 0>
   <Port TBias 1 380 220 4 12 1 2 "5" 1 "analog" 0>
   <Sub SUB1 1 280 170 -26 78 0 0 "./Schematic/Error Amplifier/ErrorAmplifierNMOSMkI.sch" 0>
-  <MOS_SPICE X1 1 510 170 -26 34 0 0 "X" 1 "4" 1 "pmos" 1 "pfet_06v0 L=10u W=40u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
+  <MOS_SPICE X1 1 510 170 -26 34 0 0 "X" 1 "4" 1 "pmos" 1 "pfet_06v0 L=10u W=80u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
 </Components>
 <Wires>
   <280 70 280 100 "" 0 0 0 "">

@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-563,-192,637,479,1.31333,0,0>
+  <View=-734,-223,1023,759,1.0854,101,18>
   <Grid=10,10,1>
   <DataSet=ReferenceMkI.dat>
   <DataDisplay=ReferenceMkI.dpl>
@@ -55,7 +55,7 @@
   <R_SPICE R5 1 -230 270 15 -26 0 1 "ppolyf_u_1k r_width=1u r_length=10u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
   <R_SPICE R7 1 -230 350 15 -26 0 1 "ppolyf_u_1k r_width=1u r_length=24u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
   <R_SPICE R8 1 220 270 15 -26 0 1 "ppolyf_u_1k r_width=1u r_length=15u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
-  <R_SPICE R6 1 220 350 15 -26 0 1 "ppolyf_u_1k r_width=2u r_length=10u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
+  <R_SPICE R6 1 220 350 15 -26 0 1 "ppolyf_u_1k r_width=1u r_length=14u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
 </Components>
 <Wires>
   <530 -80 530 10 "" 0 0 0 "">

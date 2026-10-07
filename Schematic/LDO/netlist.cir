@@ -1,0 +1,78 @@
+* Qucs 26.1.1  /foss/designs/LNA/MkIII/Schematic/LDO/LDO_Testing_Monte_Carlo_MkI.sch
+.INCLUDE "/foss/tools/qucs-s/share/qucs-s/xspice_cmlib/include/ngspice_mathfunc.inc"
+.INCLUDE "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/design.ngspice"
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" bjt_typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" cap_mim
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" mimcap_typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" res_typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" SF
+.SUBCKT ErrorAmplifierNMOSMkI _net2 _net0 _net3 _net4 _net1 
+X1 _net4  _net5  _net5  _net4 pfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X2 _net4  _net5  _net3  _net4 pfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X3 _net3  _net0  _net6  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X4 _net6  _net1  0  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X5 _net5  _net2  _net6  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT LDOMkI _net0 _net1 _net2 _net3 _net4 
+XSUB1 _net2 _net1 _net5 _net0 _net4 ErrorAmplifierNMOSMkI
+X1 _net0  _net5  _net3  _net0 pfet_06v0 L=10u W=80u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT ReferenceMkI _net6 _net4 _net1 _net2 _net0 
+X2 _net0  _net0  0  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XSUB1 _net1 _net2 _net3 _net4 _net0 LDOMkI
+XSUB2 _net1 _net2 _net5 _net6 _net0 LDOMkI
+XC2 _net6  _net5 cap_mim_2f0fF c_width=11u c_length=22u
+XC3 _net4  _net3 cap_mim_2f0fF c_width=11u c_length=22u
+XR5 _net5  _net6  0 ppolyf_u_1k r_width=1u r_length=10u
+XR7 0  _net5  0 ppolyf_u_1k r_width=1u r_length=24u
+XR8 _net3  _net4  0 ppolyf_u_1k r_width=1u r_length=15u
+XR6 0  _net3  0 ppolyf_u_1k r_width=1u r_length=14u
+.ENDS
+.PARAM sw_stat_global = 1
+.PARAM sw_stat_mismatch = 1
+
+
+
+
+
+XSUB1 Out1V7 Out2V5 _net0 _net1 _net2 ReferenceMkI
+I1 _net0 _net2 DC 10U
+V1 _net0 0 DC 3.3
+V2 _net1 0 DC 1.2
+
+
+.control
+
+op
+print v(Out1V7) v(Out2V5)   > spice4qucs.dc1.ngspice.dc.print
+destroy all
+reset
+
+let gain_array = vector(7)
+
+let idx = 0
+
+set appendwrite
+
+while idx <= 100
+  
+  reset
+  
+  dc
+  let out_1v7 = v(out1v7)
+  let out_2v5 = v(out2v5)
+  write mc_out.raw out_1v7 out_2v5
+  reset
+  
+  let idx = idx + 1
+end
+
+unset appendwrite
+
+
+destroy all
+reset
+
+exit
+.endc
+.END
