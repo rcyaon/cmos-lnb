@@ -151,13 +151,13 @@ A summary of the proposed LNA's performance is below.  More details regarding th
 | Noise Figure             | --      | --      | --      | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Input Return Loss (S11)  | -13 dB  | -15 dB  | -17 dB  | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Output Return Loss (S22) | -5 dB   | -7 dB   | -9 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
-| Rollett Stability Factor | > 1400  |         |         | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
+| Rollett Stability Factor | > 1400  | --      | --      | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Output P1dB              | -19 dB  | -17 dB  | -16 dB  | [Compression Test Bench](Schematic/LNA/Characterization.md#compression-test-bench)       |
 | Output IP3               | -9 dBm  | -7 dBm  | -7 dBm  | [Linearity Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)         |
 | Gain Flatness            | 6 dB    | 8 dB    | 11 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#linearity-test-bench)       |
-| DC Power Consumption     |         |         |         | [Power Consumption Test Bench]() |
-| Voltage Supply           |         |         |         | [Supply Sweep Test Bench]()      |
-| Temperature Stability    |         |         |         | [Temperature Test Bench]()       |
+| DC Power Consumption     | --      | 50 mW   | --      | [Power Consumption Test Bench](Schematic/LNA/Characterization.md#dc-power-consumption-test-bench) |
+| Voltage Supply           | 3.0 V   | 3.3 V   | 3.3 V   | [Supply Sweep Test Bench](Schematic/LNA/Characterization.md#supply-sweep-test-bench)      |
+| Temperature Stability    | -25 C   | --      | 125 C   | [Temperature Test Bench](Schematic/LNA/Characterization.md#temperature-test-bench)       |
 
 The weakest point of the amplifier performance is the output compression; it compresses at a very low output power level.  This is alright for satellite communication and weak amateur radio communications, where the signals are already very weak to begin with and the LNA is used after an antenna to amplify a signal before it reaches the high gain, but higher noise figure front-end amplifiers of a software-defined radio. That being said, it would limit use of the component in other applications (such as a diode-ring mixer pre-driver).  The limit is likely a result of cascode drain degeneration on the middle two common source gain stages.  The trade off is kept because this degeneration flattens the frequency response of the amplifier and will make it more stable.  Amplifier stability is of chief concern, it is better to have a low amplifier that works than an oscillator.
 
