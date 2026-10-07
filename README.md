@@ -142,7 +142,7 @@ The diagram above shows the working principle of the LNA with biasing removed.
 
 ### Overall Performance
 
-A summary of the LNA performance metrics evaluated in the sweeps are below.  More details regarding the 
+A summary of the proposed LNA's performance is below.  More details regarding the simulations used to determine these performance metrics are linked in the table.  The variability within this table spans all corner simulations the PDK supports, that is, this much variability would not be likely on a single die, although one extreme or the other could theoretically be reached on a single die.
 
 | Description              | Minimum | Typical | Maximum | Simulation Results               |
 | ------------------------ | ------- | ------- | ------- | -------------------------------- |
@@ -151,14 +151,15 @@ A summary of the LNA performance metrics evaluated in the sweeps are below.  Mor
 | Noise Figure             | --      | --      | --      | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Input Return Loss (S11)  | -13 dB  | -15 dB  | -17 dB  | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Output Return Loss (S22) | -5 dB   | -7 dB   | -9 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
-| Output P1dB              |         |         |         | [Compression Test Bench](Schematic/LNA/Characterization.md#compression-test-bench)       |
-| Output IP3               |         |         |         | [Linearity Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)         |
+| Rollett Stability Factor | > 1400  |         |         | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
+| Output P1dB              | -19 dB  | -17 dB  | -16 dB  | [Compression Test Bench](Schematic/LNA/Characterization.md#compression-test-bench)       |
+| Output IP3               | -9 dBm  | -7 dBm  | -7 dBm  | [Linearity Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)         |
 | Gain Flatness            | 6 dB    | 8 dB    | 11 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#linearity-test-bench)       |
 | DC Power Consumption     |         |         |         | [Power Consumption Test Bench]() |
 | Voltage Supply           |         |         |         | [Supply Sweep Test Bench]()      |
 | Temperature Stability    |         |         |         | [Temperature Test Bench]()       |
 
-
+The weakest point of the amplifier performance is the output compression; it compresses at a very low output power level.  This is alright for satellite communication and weak amateur radio communications, where the signals are already very weak to begin with and the LNA is used after an antenna to amplify a signal before it reaches the high gain, but higher noise figure front-end amplifiers of a software-defined radio. That being said, it would limit use of the component in other applications (such as a diode-ring mixer pre-driver).  The limit is likely a result of cascode drain degeneration on the middle two common source gain stages.  The trade off is kept because this degeneration flattens the frequency response of the amplifier and will make it more stable.  Amplifier stability is of chief concern, it is better to have a low amplifier that works than an oscillator.
 
 ## Acknowledgements
 
