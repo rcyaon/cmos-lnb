@@ -97,7 +97,7 @@ Simulation was performed in QUCS-S and the following metrics were measured.  The
 
 #### Active Balun
 
-The active balun converts the amplified single ended signal from the front-end into a differential sign suitable for the differential gilbert cell mixer.  It is made up of a resistively loaded differential pair with automatic bias input level control.  Resistive loading suffers less gain and more noise than an actively loaded topology, but it was difficult to get the output level control using an active 
+The active balun converts the amplified single ended signal from the front-end into a differential sign suitable for the differential gilbert cell mixer.  It is made up of a resistively loaded differential pair with automatic bias input level control.  Resistive loading can realize less voltage gain and adds more noise than an actively loaded topology, but it was difficult to get the output level control using an active 
 
 #### Gilbert Cell Mixer
 
@@ -142,7 +142,7 @@ The diagram above shows the working principle of the LNA with biasing removed.
 
 ### Overall Performance
 
-In order to obtain reasonable performance, the amplifier was narrow-banded to around 1.7 GHz, suitable for receiving GOES HRIT and certain HAM radio bands.  Without adding additional inductors to the circuit, enabling the ability to ring out the capacitance of the gain stage transistor gates, it was hard to flatten gain across the full target frequency regime.  One solution to this would be to place a more broadband, higher Q, impedance matching network externally to the chip (or make the internal one more complex, which space requirements would almost certainly render impossible).  This would also save die space. 
+A summary of the LNA performance metrics evaluated in the sweeps are below.  More details regarding the 
 
 | Description              | Minimum | Typical | Maximum | Simulation Results               |
 | ------------------------ | ------- | ------- | ------- | -------------------------------- |
@@ -151,10 +151,9 @@ In order to obtain reasonable performance, the amplifier was narrow-banded to ar
 | Noise Figure             | --      | --      | --      | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Input Return Loss (S11)  | -13 dB  | -15 dB  | -17 dB  | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
 | Output Return Loss (S22) | -5 dB   | -7 dB   | -9 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
-| Output P1dB              |         |         |         | [Compression Test Bench]()       |
-| Output IP3               |         |         |         | [Linearity Test Bench]()         |
-| Output IP2               |         |         |         | [Linearity Test Bench]()         |
-| Gain Flatness            | 6 dB    | 8 dB    | 11 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)       |
+| Output P1dB              |         |         |         | [Compression Test Bench](Schematic/LNA/Characterization.md#compression-test-bench)       |
+| Output IP3               |         |         |         | [Linearity Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)         |
+| Gain Flatness            | 6 dB    | 8 dB    | 11 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#linearity-test-bench)       |
 | DC Power Consumption     |         |         |         | [Power Consumption Test Bench]() |
 | Voltage Supply           |         |         |         | [Supply Sweep Test Bench]()      |
 | Temperature Stability    |         |         |         | [Temperature Test Bench]()       |
