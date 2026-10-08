@@ -43,6 +43,19 @@ An overall block diagram of the proposed down converter is shown above.  The des
 The following top-level schematic was created for the LNB:
 ![LNB](/Images/LNB.png)
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M2 | nfet | 5.00u | 0.28u | Thin (3v3) |
+| C10 | cap_mim_2f0fF | 22u | 22u | - |
+| M3 | pfet | 0.3u | 0.5u | Thin (3v3) |
+| M4 | nfet | 10u | 4u | Thick (6v0) |
+| M5 | nfet | 10u | 4u | Thick (6v0) |
+| M6 | pfet | 0.3u | 0.5u | Thin (3v3) |
+| M7 | pfet | 0.3u | 0.5u | Thin (3v3) |
+| M8 | nfet | 10u | 4u | Thick (6v0) |
+| C11 | cap_mim_2f0fF | 22u | 22u | - |
+| M9 | nfet | 2.50u | 0.28u | Thin (3v3) |
+
 ### Front-end
 
 ![Front-end Block Diagram](Images/LNB_Front_End_Block_Diagram_2.png)
@@ -57,6 +70,12 @@ The front-end provides impedance conversion from the 50Ω circuit input impedanc
 
 The input buffer is a common gate amplifier that provides a high quality impedance match between the source, and adds voltage gain to the system and the input of the LNA and performs an impedance conversion from the 50Ω input impedance of the circuit to the high impedance CMOS stages, where realizing voltage gain is easy.  The source loading resistor, in series with the input reactance of the common gate amplifier (proportional to 1/g<sub>m</sub>) is matched such that the input presents a nearly flat 50Ω impedance across the frequency band.  In reality, the match is fairly good.
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M1 | pfet | 20.0u | 0.28u | Thin (3v3) |
+| M2 | nfet | 20.00u | 0.28u | Thin (3v3) |
+| R2 | ppolyf_s | 1u | 9u | - |
+
 
 #### CMOS Gain Stage
 
@@ -66,6 +85,13 @@ The input buffer is a common gate amplifier that provides a high quality impedan
 
 The CMOS gain stage increases the voltage level of the input signal.  A net power loss is incurred through the CMOS stages of the low noise block.  The power is "recovered" as the signal is buffered out by the output stage in the frequency converter.  The gain stage is a cascoded class A nMOS amplifier with active loading and an integrated common mode output controller.  Three identical gain stages are ganged together to provide the necessary voltage gain in the front-end.  There is a degeneration resistor placed between the active load and the cascode stages in order to flatten gain and increase stability.  The amount of resistance can be adjusted to reach a desired performance.
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M15 | pfet | 20.0u | 0.28u | Thin (3v3) |
+| M13 | nfet | 20.0u | 0.28u | Thin (3v3) |
+| M16 | nfet | 20.0u | 0.28u | Thin (3v3) |
+| R1 | ppolyf_s | 1u | 10u | - |
+
 #### Error Amplifier
 
 ![pMOS Error Amplifier Schematic](Images/PMOS_Error_Amp.png)
@@ -74,6 +100,13 @@ The CMOS gain stage increases the voltage level of the input signal.  A net powe
 
 The common mode output control for both the gain stages and the input buffer is achieved with a pMOS operational transconductance amplifier acting as an error amplifier on the output DC level.  Very small transistors are intentionally used on this component in order to limit the frequency response and load capacitance of the error amplifier.  Small transistors suffer from poor matching between identical devices fortunately [Monte Carlo simulations](<Schematic/Gain Stage/Characterization.md>) showed DC output level errors from mismatch in the control amplifier did not have a significant effect on system performance.  Increasing the size of the devices resulted in poor performance or oscillations in the output due to capacitive loading and coupling through the amplifier.
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M8 | pfet | 0.3u | 0.6u | Thin (3v3) |
+| M11 | pfet | 0.3u | 0.6u | Thin (3v3) |
+| M1 | nfet | 0.3u | 0.6u | Thin (3v3) |
+| M13 | nfet | 0.3u | 0.6u | Thin (3v3) |
+| M12 | pfet | 0.3u | 0.6u | Thin (3v3) |
 
 ### Frequency Converter
 
@@ -87,14 +120,33 @@ The common mode output control for both the gain stages and the input buffer is 
 
 The active balun converts the amplified single ended signal from the front-end into a differential sign suitable for the differential Gilbert cell mixer.  It is made up of a resistively loaded differential pair with automatic bias input level control.  Resistive loading can realize less voltage gain and adds more noise than an actively loaded topology, but it was difficult to get the output level control using an active 
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| R1 | ppolyf_u_1k | 2u | 40u | - |
+| R2 | ppolyf_u_1k | 2u | 40u | - |
+| M4 | nfet | 5.00u | 0.28u | Thin (3v3) |
+| M3 | nfet | 5.00u | 0.28u | Thin (3v3) |
+| M5 | nfet | 5.00u | 0.28u | Thin (3v3) |
+
 #### Gilbert Cell Mixer
 
 ![Mixer](Images/Mixer.png)
 
 *Most Up-To-Date Schematic: Schematic/Mixer/MixerMkII.sch*
 
-The mixer topology was selected to be a Gilbert cell due to the ease of implementation on chip and the high performance.  
+The mixer topology was selected to be a Gilbert cell due to the ease of implementation on chip and theoretically high performance.  In this case, the performance of the Gilbert cell is largely limited by a combination of less-than-ideal biasing and poor LO quality.
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M15 | nfet | 5.00u | 0.6u | Thin (3v3) |
+| M31 | nfet | 5.00u | 0.6u | Thin (3v3) |
+| M32 | nfet | 5.00u | 0.6u | Thin (3v3) |
+| M33 | nfet | 5.00u | 0.6u | Thin (3v3) |
+| M34 | nfet | 5.00u | 0.6u | Thin (3v3) |
+| M35 | nfet | 5.00u | 0.6u | Thin (3v3) |
+| M36 | nfet | 5.00u | 0.6u | Thin (3v3) |
+| M29 | pfet | 10.0u | 0.6u | Thin (3v3) |
+| M30 | pfet | 10.0u | 0.6u | Thin (3v3) |
 
 #### Bipolar Output Buffer
 
@@ -104,6 +156,10 @@ The mixer topology was selected to be a Gilbert cell due to the ease of implemen
 
 The lower output impedance of the NPN bipolar transistors included in the PDK makes it a good candidate to buffer out the amplified signal.  The buffer is a simple resistively loaded emitter follower stage, biased by the DC output of the CMOS stages.  Although the output is not efficient as it probably could be with more advanced topologies, this design is small, simple and does not risk adding feedback to the system that could cause oscillations.
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| R3 | ppolyf_u_1k | 2u | 2u | - |
+| Q1 | NPN_10P00X10P00 | - | - | - |
 
 ### Local Oscillator
 
@@ -115,14 +171,27 @@ The lower output impedance of the NPN bipolar transistors included in the PDK ma
 
 The local oscillator is a three-stage current-starved inverter ring with a two-inverter output buffer, built from thin oxide 3.3 V devices.  A control current into the VTune line controls the sets the frequency, so either one of the harness iDACs, or an analog pin can tune the LO after fabrication.  Pulling the control current stops the ring and parks the output at the supply, which is the disable for now.  There's is an additional port to couple the output of the LO out of the chip for analysis.  When the oscillator is off this doubles as an input for a tone of the user's choice, if greater stability is required.
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M3 | pfet | 10.00u | 0.28u | Thin (3v3) |
+| M4 | nfet | 2.50u | 0.28u | Thin (3v3) |
+
 #### Current Limited Ring Stage
 
 ![Current Limited Stage](/Images/Ring_Inverter.png)
 
 *Most Up-To-Date Schematic: Schematic/Oscillator/RingInverterMkII.sch*
 
-
 This current limited ring stage is used to form the core oscillator in the design.  The current control allows the frequency to be adjusted from a few hundred MHz (low current) to nearly 1.5 GHz (high current).  The more current that is let pass though the inverter by the leading and trailing degeneration transistor the more current is able to drive the output capacitance of the device and the faster the oscillator moves. 
+
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M29 | nfet | 2.50u | 0.28u | Thin (3v3) |
+| M28 | pfet | 5.00u | 0.28u | Thin (3v3) |
+| M30 | pfet | 5.00u | 0.28u | Thin (3v3) |
+| M31 | nfet | 2.50u | 0.28u | Thin (3v3) |
+| C1 | cap_mim_2f0fF | 2u | 5u | - |
+
 
 #### Capacitively Loaded Ring Stage
 
@@ -132,6 +201,12 @@ This current limited ring stage is used to form the core oscillator in the desig
 
 
 This is a capacitively loaded buffer stage for the ring oscillator.  It ensures that the drive level is as high as it needs to be to control the Gilbert cell.  In the design two of these are ganged together in order to create a differential output to drive the LO input of the mixer.
+
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M29 | nfet | 2.50u | 0.28u | Thin (3v3) |
+| M28 | pfet | 5.00u | 0.28u | Thin (3v3) |
+| C1 | cap_mim_2f0fF | 7u | 5u | - |
 
 ### Biasing Reference (Self Referenced)
 
@@ -170,6 +245,16 @@ Two LDO circuit with output voltages set by a high-res poly resistor divider are
 
 Testing and characterization of the voltage reference is available [here](Schematic/LDO/Characterization.md).
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M2 | nfet | 10u | 4u | Thick (6v0) |
+| C2 | cap_mim_2f0fF | 11u | 22u | - |
+| C3 | cap_mim_2f0fF | 11u | 22u | - |
+| R5 | ppolyf_u_1k | 1u | 10u | - |
+| R7 | ppolyf_u_1k | 1u | 24u | - |
+| R8 | ppolyf_u_1k | 1u | 15u | - |
+| R6 | ppolyf_u_1k | 1u | 14u | - |
+
 #### LDO
 
 ![LDO](Images/LDO.png)
@@ -178,11 +263,23 @@ Testing and characterization of the voltage reference is available [here](Schema
 
 A simple LDO for biasing was created by adding an output buffer transistor to a five transistor differential amplifier.  The arbitrary output voltage is divided and compared to a reference level.  The reference level in this design is provided by the harness band gap reference.  This basic LDO topology has limited accuracy, but the bias points of these transistors does not need to be extremely accurate.  
 
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M1 | pfet | 20u | 10u | Thick (6v0) |
+
 #### nMOS Error Amplifier
 
 ![nMOS Error Amplifier Schematic](Images/NMOS_Error_Amp.png)
 
 The output control for the reference LDOs is provided by the above nMOS error amplifier.  The transistors of the nMOS error amplifier are much larger than those of the pMOS error amplifier because matching is of greater concern than gain or frequency response.
+
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| M1 | pfet | 10u | 4u | Thick (6v0) |
+| M2 | pfet | 10u | 4u | Thick (6v0) |
+| M3 | nfet | 10u | 4u | Thick (6v0) |
+| M4 | nfet | 10u | 4u | Thick (6v0) |
+| M5 | nfet | 10u | 4u | Thick (6v0) |
 
 ### Overall Performance
 
@@ -204,6 +301,35 @@ Prior to the preliminary design review, this design was characterized at the typ
 | Voltage Supply           | --      | 3.3 V   | --      | [Supply Test Bench](Schematic/LNB/Characterization.md#supply-test-bench) |
 | Temperature Stability    | -25 C   | --      | 125 C   | [Temperature Test Bench](Schematic/LNB/Characterization.md#temperature-test-bench) |
 
+### Sizing
+
+The devices size was estimated according to the following formulas:
+
+- FETs: A = W * (L + 0.36 um) * 2.5
+- Resistors (ppolyf): A = W * (L + 4 um) * 1.2
+- Capacitors: A = W * L * 1.1
+
+
+| Sub Circuit | Estimated Layout Area |
+| ---------- | --------------------- |
+| pMOS Error Amplifier | 3.6 um<sup>2</sup> |
+| Mixer | 132.0 um<sup>2</sup> |
+| Active Balun | 235.2 um<sup>2</sup> |
+| Gain Stage | 112.8 um<sup>2</sup> |
+| Input Buffer | 79.6 um<sup>2</sup> |
+| nMOS Error Amplifier | 545.0 um<sup>2</sup> |
+| LDO | 518.0 um<sup>2</sup> |
+| Reference | 736.2 um<sup>2</sup> |
+| Output Buffer | 914.4 um<sup>2</sup> |
+| Current Limited Ring Stage | 35.0 um<sup>2</sup> |
+| Capacitively Loaded Ring Stage | 50.5 um<sup>2</sup> |
+| Oscillator |  20.0 um<sup>2</sup> |
+| LNB | 1,405.7 um<sup>2</sup> |
+
+Summed Area: 6,215.1 um<sup>2</sup>
+
+Area Estimate: ~8000 um<sup>2</sup>
+
 ## Low Noise Amplifier
 
 ![LNA Block Diagram](/Images/LNA_Block_Diagram_2.png)
@@ -220,6 +346,17 @@ The diagram above shows the working principle of the LNA with biasing removed.
 
 The following top-level schematic was created for the LNB:
 ![LNA](/Images/LNA.png)
+
+|Name|Type|Width|Length|Oxide Thickness|
+|-------|-----|-------|--------|-------------------|
+| C4 | cap_mim_2f0fF | 22u | 22u | - |
+| C5 | cap_mim_2f0fF | 22u | 22u | - |
+| M10 | pfet | 0.3u | 0.5u | Thin (3v3) |
+| M11 | nfet | 10u | 4u | Thick (6v0) |
+| M12 | nfet | 10u | 4u | Thick (6v0) |
+| M13 | pfet | 0.3u | 0.5u | Thin (3v3) |
+| M14 | pfet | 0.3u | 0.5u | Thin (3v3) |
+| M15 | nfet | 10u | 4u | Thick (6v0) |
 
 Testing and characterization of the voltage reference is available [here](Schematic/LNA/Characterization.md).
 
@@ -243,6 +380,31 @@ A summary of the proposed LNA's performance is below.  More details regarding th
 | Temperature Stability    | -25 C   | --      | 125 C   | [Temperature Test Bench](Schematic/LNA/Characterization.md#temperature-test-bench)                |
 
 The weakest point of the amplifier performance is the output compression; it compresses at a very low output power level.  This is alright for satellite communication and weak amateur radio communications, where the signals are already very weak to begin with and the LNA is used after an antenna to amplify a signal before it reaches the high gain, but higher noise figure front-end amplifiers of a software-defined radio. That being said, it would limit use of the component in other applications (such as a diode-ring mixer pre-driver).  The limit is likely a result of cascode drain degeneration on the middle two common source gain stages.  The trade off is kept because this degeneration flattens the frequency response of the amplifier and will make it more stable.  Amplifier stability is of chief concern, it is better to have a low amplifier that works than an oscillator.
+
+### Sizing
+
+The devices size was estimated according to the following formulas:
+
+- FETs: A = W * (L + 0.36 um) * 2.5
+- Resistors (ppolyf): A = W * (L + 4 um) * 1.2
+- Capacitors: A = W * L * 1.1
+
+
+| Subcircuit | Estimated Layout Area |
+| ---------- | --------------------- |
+| pMOS Error Amplifier | 3.6 um<sup>2</sup> |
+| Gain Stage | 112.8 um<sup>2</sup> |
+| Input Buffer | 79.6 um<sup>2</sup> |
+| nMOS Error Amplifier | 545.0 um<sup>2</sup> |
+| LDO | 518.0 um<sup>2</sup> |
+| Reference | 736.2 um<sup>2</sup> |
+| Output Buffer | 914.4 um<sup>2</sup> |
+| LNA | 1,393.7 um<sup>2</sup> |
+
+Summed Area: 5,486.3 um<sup>2</sup>
+
+Area Estimate: ~7000 um<sup>2</sup>
+
 
 ## Acknowledgements
 
