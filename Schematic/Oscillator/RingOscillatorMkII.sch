@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-3101,-508,2788,2005,0.620959,1518,444>
+  <View=-897,198,1323,1439,0.710046,0,0>
   <Grid=10,10,1>
   <DataSet=RingOscillatorMkII.dat>
   <DataDisplay=RingOscillatorMkII.dpl>
@@ -104,13 +104,18 @@
   <-230 600 -230 760 "" 0 0 0 "">
   <-230 760 490 760 "" 0 0 0 "">
   <-230 600 -180 600 "" 0 0 0 "">
-  <640 600 490 600 "" 0 0 0 "">
-  <520 760 490 760 "" 0 0 0 "">
+  <490 600 640 600 "" 0 0 0 "">
+  <490 760 520 760 "" 0 0 0 "">
   <460 1010 520 1010 "" 0 0 0 "">
-  <-260 490 -260 470 "" 0 0 0 "">
+  <-260 470 -260 490 "" 0 0 0 "">
   <-290 1010 -280 1010 "" 0 0 0 "">
 </Wires>
 <Diagrams>
 </Diagrams>
 <Paintings>
+  <Text -80 500 12 #000000 0 "Ring Inverter">
+  <Text 150 500 12 #000000 0 "Ring Inverter">
+  <Text 380 500 12 #000000 0 "Ring Inverter">
+  <Text 650 710 12 #000000 0 "Ring Inverter\n(No Current Limit)">
+  <Text 940 480 12 #000000 0 "Ring Inverter\n(No Current Limit)">
 </Paintings>

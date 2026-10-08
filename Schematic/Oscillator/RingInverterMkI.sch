@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-720,260,871,1149,2.56947,1483,334>
+  <View=-514,272,1077,1161,0.990641,0,0>
   <Grid=10,10,1>
   <DataSet=RingInverterMkI.dat>
   <DataDisplay=RingInverterMkI.dpl>
@@ -35,9 +35,9 @@
   <Port Input 1 -20 650 -23 12 0 0 "2" 1 "analog" 0>
   <Port Output 1 340 650 4 12 1 2 "3" 1 "analog" 0>
   <GND * 1 240 790 0 0 0 0>
-  <C C1 1 240 730 17 -26 0 1 "0.08 pF" 1 "" 0 "neutral" 0>
   <MOS_SPICE X29 1 120 730 -26 34 0 0 "X" 1 "4" 1 "nmos" 1 "nfet_03v3 L=0.28u W=2.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
   <MOS_SPICE X28 1 120 570 -26 34 0 0 "X" 1 "4" 1 "pmos" 1 "pfet_03v3 L=0.28u W=10.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
+  <C_SPICE C1 1 240 730 17 -26 0 1 "cap_mim_2f0fF c_width=7u c_length=5u" 0 "" 0 "" 0 "" 0 "" 0 "2" 1 "X" 1>
 </Components>
 <Wires>
   <120 760 120 790 "" 0 0 0 "">
