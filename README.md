@@ -118,6 +118,7 @@ The local oscillator is a three-stage current-starved inverter ring with a two-i
 #### Current Limited Ring Stage
 
 ![Current Limited Stage](/Images/Ring_Inverter.png)
+
 *Most Up-To-Date Schematic: Schematic/Oscillator/RingInverterMkII.sch*
 
 
@@ -126,6 +127,7 @@ This current limited ring stage is used to form the core oscillator in the desig
 #### Capacitively Loaded Ring Stage
 
 ![C Loaded Stage](/Images/Ring_Inverter_No_I_Lim.png)
+
 *Most Up-To-Date Schematic: Schematic/Oscillator/RingInverterMkI.sch*
 
 
