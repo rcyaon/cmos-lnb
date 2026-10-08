@@ -121,6 +121,7 @@ The local oscillator is a three-stage current-starved inverter ring with a two-i
 
 ![Current Limited Stage](/Images/Ring_Inverter.png)
 
+This current limited ring stage is used to form the core oscillator in the design.  The current control allows the frequency to be adjusted from a few hundred MHz (low current) to nearly 1.5 GHz (high current).  The more current that is let pass though the inverter by the leading and trailing degeneration transistor the more current is able to drive the output capacitance of the device and the faster the oscillator moves. 
 
 #### Capacitively Loaded Ring Stage
 
@@ -128,6 +129,7 @@ The local oscillator is a three-stage current-starved inverter ring with a two-i
 
 ![C Loaded Stage](/Images/Ring_Inverter_No_I_Lim.png)
 
+This is a capacitively loaded buffer stage for the ring oscillator.  It ensures that the drive level is as high as it needs to be to control the Gilbert cell.  In the design two of these are ganged together in order to create a differential output to drive the LO input of the mixer.
 
 ### Biasing Reference (Self Referenced)
 
@@ -189,15 +191,15 @@ Prior to the preliminary design review, this design was characterized at the typ
 | ------------------------ | ------- | ------- | ------- | ------------------------------------------------------------------------------------------------- |
 | RF Frequency Range       | 300 MHz | 1.7 GHz | 2 GHz   | [Gain Test Bench](Schematic/LNB/Characterization.md#gain-test-bench) |
 | LO Frequency Range       | 300 MHz | 1.7 GHz | 2 GHz   | [Frequency Test Bench](Schematic/Oscillator/Characterization.md#frequency-test-bench) |
-| Power Gain               | 9 dB    | 13 dB   | 21 dB   | [Gain Test Bench](Schematic/LNB/Characterization.md#gain-test-bench) |
+| Power Gain               | -1 dB   | 5 dB    | 9 dB    | [Gain Test Bench](Schematic/LNB/Characterization.md#gain-test-bench) |
 | Noise Figure             | --      | --      | --      | This is hard to calculate, a custom python script needs to be written |
 | Input Return Loss (S11)  | -13 dB  | -15 dB  | -17 dB  | [S Parameter Test Bench](Schematic/LNB/Characterization.md#s-parameter-test-bench) |
-| Output Return Loss (S22) | -5 dB   | -7 dB   | -9 dB   | [S Parameter Test Bench](Schematic/LNB/Characterization.md#s-parameter-test-bench) |
-| Output P1dB              | -19 dB  | -17 dB  | -16 dB  | [Compression Test Bench](Schematic/LNB/Characterization.md#compression-test-bench) |
-| Output IP3               | -9 dBm  | -7 dBm  | -7 dBm  | [Linearity Test Bench](Schematic/LNB/Characterization.md#linearity-test-bench) |
-| Gain Flatness            | 6 dB    | 8 dB    | 11 dB   | [Gain Test Bench](Schematic/LNB/Characterization.md#-test-bench) |
-| DC Power Consumption     | --      | 50 mW   | --      | [Power Consumption Test Bench](Schematic/LNB/Characterization.md#power-consumption-test-bench) |
-| Voltage Supply           | 3.0 V   | 3.3 V   | 4.0 V   | [Supply Test Bench](Schematic/LNB/Characterization.md#supply-test-bench) |
+| Output Return Loss (S22) | -2 dB   | -3 dB   | -4 dB   | [S Parameter Test Bench](Schematic/LNB/Characterization.md#s-parameter-test-bench) |
+| Output P1dB              | --      | --      | --      | [Compression Test Bench](Schematic/LNB/Characterization.md#compression-test-bench) |
+| Output IP3               | --      | --      | --      | [Linearity Test Bench](Schematic/LNB/Characterization.md#linearity-test-bench) |
+| Gain Flatness            | 5 dB    | 4 dB    | 3 dB    | [Gain Test Bench](Schematic/LNB/Characterization.md#gain-test-bench) |
+| DC Power Consumption     | --      | --      | --      | [Power Consumption Test Bench](Schematic/LNB/Characterization.md#power-consumption-test-bench) |
+| Voltage Supply           | --      | 3.3 V   | --      | [Supply Test Bench](Schematic/LNB/Characterization.md#supply-test-bench) |
 | Temperature Stability    | -25 C   | --      | 125 C   | [Temperature Test Bench](Schematic/LNB/Characterization.md#temperature-test-bench) |
 
 ## Low Noise Amplifier
