@@ -1,6 +1,6 @@
 # Low Noise Block Down Converter
 
-* Most Up-To-Date Schematic: Schematic/LNB/LNBMkII.sch *
+*Most Up-To-Date Schematic: Schematic/LNB/LNBMkII.sch*
 
 ## S Parameter Test Bench
 
