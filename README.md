@@ -101,30 +101,30 @@ The mixer topology was selected to be a Gilbert cell due to the ease of implemen
 
 The lower output impedance of the NPN bipolar transistors included in the PDK makes it a good candidate to buffer out the amplified signal.  The buffer is a simple resistively loaded emitter follower stage, biased by the DC output of the CMOS stages.  Although the output is not efficient as it probably could be with more advanced topologies, this design is small, simple and does not risk adding feedback to the system that could cause oscillations.
 
-#### End-to-end Performance
-
-![Frequency Converter System](Images/LNB_Frequency_Converter_System.png)
-
 
 ### Local Oscillator
 
 #### Ring Oscillator
 
-![Ring Oscillator](Images/QUCS_ringosci.png)
+![Ring Oscillator](/Images/Oscillator.png)
 
-*Most Up-To-Date Schematic: Schematic/References/ringosci.sch*
+*Most Up-To-Date Schematic: Schematic/Oscillator/OscillatorMkII.sch*
 
-The local oscillator is a three-stage current-starved inverter ring with a two-inverter output buffer, built from 6 V devices for a 5 V supply.  A control current into the `ictl` pin sets the frequency, so one of the harness iDACs can tune the LO after fabrication.  Pulling the control current stops the ring and parks the output at the supply, which is the disable for now.  There's no dedicated enable pin or external LO input yet.
+The local oscillator is a three-stage current-starved inverter ring with a two-inverter output buffer, built from thin oxide 3.3 V devices.  A control current into the VTune line controls the sets the frequency, so either one of the harness iDACs, or an analog pin can tune the LO after fabrication.  Pulling the control current stops the ring and parks the output at the supply, which is the disable for now.  There's is an additional port to couple the output of the LO out of the chip for analysis.  When the oscillator is off this doubles as an input for a tone of the user's choice, if greater stability is required.
 
-| Parameter                               | Minimum  | Typical  | Maximum  |
-| --------------------------------------- | -------- | -------- | -------- |
-| LO Frequency, 20 µA Control Current     | 0.45 GHz | 0.48 GHz | 0.50 GHz |
-| LO Frequency, 80 µA Control Current     | 1.02 GHz | 1.22 GHz | 1.36 GHz |
-| LO Frequency, 200 µA Control Current    | 1.13 GHz | 1.42 GHz | 1.67 GHz |
-| Supply Current, Running at 80 µA        | 1.31 mA  | 1.57 mA  | 1.82 mA  |
-| Supply Current, Control Current Removed | 13 µA    | 35 µA    | 58 µA    |
+#### Current Limited Ring Stage
 
-Minimum and maximum are across the process corners at 5 V and 27 °C.  The tuning curve flattens out above about 100 µA, and the oscillator is free running, so the frequency also moves with temperature (1.36 GHz at -25 °C down to 1.01 GHz at 125 °C at 80 µA) and supply.  The full results are [here](Schematic/References/Characterization.md#ring-oscillator).
+*Most Up-To-Date Schematic: Schematic/Oscillator/RingInverterMkII.sch*
+
+![Current Limited Stage](/Images/Ring_Inverter.png)
+
+
+#### Capacitively Loaded Ring Stage
+
+*Most Up-To-Date Schematic: Schematic/Oscillator/RingInverterMkI.sch*
+
+![C Loaded Stage](/Images/Ring_Inverter_No_I_Lim.png)
+
 
 ### Biasing Reference (Self Referenced)
 
