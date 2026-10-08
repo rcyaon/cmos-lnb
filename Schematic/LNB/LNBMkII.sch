@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-9789,-1796,9395,4927,0.518172,4517,764>
+  <View=-12994,-2909,9395,5147,0.37975,4130,825>
   <Grid=10,10,1>
   <DataSet=LNBMkII.dat>
   <DataDisplay=LNBMkII.dpl>
@@ -258,4 +258,16 @@
   <Text 290 270 12 #000000 0 "Gain Stage">
   <Rectangle -1800 -320 600 530 #000000 1 1 #c0c0c0 1 0>
   <Text -1790 220 12 #000000 0 "Current Mirror">
+  <Text 660 370 12 #000000 0 "Active Balun">
+  <Text 1320 390 12 #000000 0 "Mixer">
+  <Text 1420 230 12 #000000 0 "Output Buffer\nAmplifier">
+  <Text 970 830 12 #000000 0 "Oscillator">
+  <Text 440 660 12 #ff0000 0 "Current input provided by iDAC, analog\ninput or internal current reference.">
+  <Text 490 20 12 #ff0000 0 "Current input provided \nby iDAC, analog\ninput or internal current \nreference.">
+  <Text -1780 -220 12 #ff0000 0 "Current input \nprovided by iDAC,\nanalog input or\ninternal current \nreference.">
+  <Text -1190 30 12 #ff0000 0 "Provided By Harness \nBand Gap Reference">
+  <Text -1660 -300 12 #ff0000 0 "Provided By Harness \nVoltage Rail">
+  <Text -710 230 12 #ff0000 0 "Pad Ring Pin">
+  <Text 770 820 12 #ff0000 0 "Pad Ring Pin">
+  <Text 1570 110 12 #ff0000 0 "Pad Ring Pin">
 </Paintings>

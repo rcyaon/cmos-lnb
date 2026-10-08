@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-6881,-5241,8296,3243,0.477142,2051,2091>
+  <View=-6881,-4983,8296,3908,0.698584,3208,3077>
   <Grid=10,10,1>
   <DataSet=LNAMkII.dat>
   <DataDisplay=LNAMkII.dpl>
@@ -176,4 +176,9 @@
   <Text -1550 250 12 #000000 0 "Reference Bias Generator">
   <Rectangle -2280 -310 600 530 #000000 1 1 #c0c0c0 1 0>
   <Text -2270 230 12 #000000 0 "Current Mirror">
+  <Text -2270 -220 12 #ff0000 0 "Current input \nprovided by iDAC,\nanalog input or\ninternal current \nreference.">
+  <Text -1660 30 12 #ff0000 0 "Provided By Harness \nBand Gap Reference">
+  <Text -2150 -300 12 #ff0000 0 "Provided By Harness \nVoltage Rail">
+  <Text 20 110 12 #ff0000 0 "Pad Ring Pin">
+  <Text -1150 230 12 #ff0000 0 "Pad Ring Pin">
 </Paintings>
