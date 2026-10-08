@@ -39,6 +39,11 @@
   <330 20 330 20 "o30" 340 0 0 "">
 </Wires>
 <Diagrams>
+  <Rect 480 450 700 480 3 #c0c0c0 1 10 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "frequency (Hz)" "PSRR (dB)" "">
+	<"ngspice/ac.psrr07" #0000ff 1 3 0 0 0>
+	<"ngspice/ac.psrr20" #ff0000 1 3 0 0 0>
+	<"ngspice/ac.psrr30" #ff00ff 1 3 0 0 0>
+  </Rect>
 </Diagrams>
 <Paintings>
 </Paintings>

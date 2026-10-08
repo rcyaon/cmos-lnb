@@ -127,7 +127,21 @@ The lower output impedance of the NPN bipolar transistors included in the PDK ma
 
 #### Ring Oscillator
 
+![Ring Oscillator](Images/QUCS_ringosci.png)
 
+*Most Up-To-Date Schematic: Schematic/References/ringosci.sch*
+
+The local oscillator is a three-stage current-starved inverter ring with a two-inverter output buffer, built from 6 V devices for a 5 V supply.  A control current into the `ictl` pin sets the frequency, so one of the harness iDACs can tune the LO after fabrication.  Pulling the control current stops the ring and parks the output at the supply, which is the disable for now.  There's no dedicated enable pin or external LO input yet.
+
+| Parameter                               | Minimum  | Typical  | Maximum  |
+| --------------------------------------- | -------- | -------- | -------- |
+| LO Frequency, 20 µA Control Current     | 0.45 GHz | 0.48 GHz | 0.50 GHz |
+| LO Frequency, 80 µA Control Current     | 1.02 GHz | 1.22 GHz | 1.36 GHz |
+| LO Frequency, 200 µA Control Current    | 1.13 GHz | 1.42 GHz | 1.67 GHz |
+| Supply Current, Running at 80 µA        | 1.31 mA  | 1.57 mA  | 1.82 mA  |
+| Supply Current, Control Current Removed | 13 µA    | 35 µA    | 58 µA    |
+
+Minimum and maximum are across the process corners at 5 V and 27 °C.  The tuning curve flattens out above about 100 µA, and the oscillator is free running, so the frequency also moves with temperature (1.36 GHz at -25 °C down to 1.01 GHz at 125 °C at 80 µA) and supply.  The full results are [here](Schematic/References/Characterization.md#ring-oscillator).
 
 ### Biasing
 
@@ -142,6 +156,27 @@ Biasing for the various circuit elements is provided by two similar, extremely b
 Two LDO circuit with output voltages set by a high-res poly resistor divider are used to create a 1.7V and 2.5V bias reference on the chip.  The LDOs rely on the band gap voltage reference on the harness in order to generate the correct voltage.  Within the LNB there are some places where the band gap reference is directly used for biasing.  If this is unacceptable due to harnessing constraints, an additional stage buffer stage can be added. In the LNB stages the 1.7 V rail generally serves as the reference for the common mode output controllers and the 2.5 V rail serves as a bias point for the cascoded nMOS transistors in the gain stages.  In the Gilbert cell the 1.2 V from the band gap reference is also used.
 
 Testing and characterization of the voltage reference is available [here](Schematic/LDO/Characterization.md).
+
+#### Self-Biased Reference
+
+![Beta Multiplier](Images/QUCS_beta_mult.png)
+
+![Reference String](Images/QUCS_vref.png)
+
+*Most Up-To-Date Schematics: Schematic/References/beta_mult.sch, Schematic/References/vref.sch*
+
+A second bias generator that doesn't need the harness band gap: a beta-multiplier current reference feeds a tapped poly resistor string, and a five-transistor OTA buffers each tap.  It gives 0.7 V, 2.0 V and 3.0 V from a 5 V supply using 6 V devices.
+
+| Parameter                    | Minimum | Typical | Maximum |
+| ---------------------------- | ------- | ------- | ------- |
+| 2.0 V Tap                    | 1.91 V  | 2.00 V  | 2.11 V  |
+| Line Regulation              | 7.2 %/V | 7.8 %/V | 8.5 %/V |
+| Change Over -25 °C to 125 °C | 6.5 %   | 6.9 %   | 7.5 %   |
+| PSRR at 1 kHz (2.0 V Tap)    | 15.6 dB | 16.7 dB | 17.5 dB |
+| Mismatch, 1σ (2.0 V Tap)     | --      | 51 mV   | --      |
+| Supply Current               | 97 µA   | 119 µA  | 156 µA  |
+
+Minimum and maximum are across the process corners at 5 V and 27 °C.  It starts up reliably and is stable into capacitive loads, but since it's self-biased the outputs wander with supply, temperature and mismatch much more than the LDOs above.  So the LNA doesn't use it; the LDO reference is still the bias source.  The full results are [here](Schematic/References/Characterization.md).
 
 #### LDO
 

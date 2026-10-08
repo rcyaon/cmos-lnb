@@ -39,10 +39,11 @@
   <330 20 330 20 "o30" 340 0 0 "">
 </Wires>
 <Diagrams>
-  <Rect -300 629 773 499 3 #c0c0c0 1 00 1 0 0.2 1 1 -0.1 0.5 1.1 1 -0.1 0.5 1.1 315 0 225 1 0 0 "" "" "">
-	<"ngspice/tran.v(o20)" #0000ff 1 3 0 0 0>
-	<"ngspice/tran.v(o30)" #ff0000 1 3 0 0 0>
-	<"ngspice/tran.v(o07)" #ff00ff 1 3 0 0 0>
+  <Rect 480 450 700 480 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "time (s)" "voltage (V)" "">
+	<"ngspice/tran.v(vdd)" #0000ff 1 3 0 0 0>
+	<"ngspice/tran.v(o07)" #ff0000 1 3 0 0 0>
+	<"ngspice/tran.v(o20)" #ff00ff 1 3 0 0 0>
+	<"ngspice/tran.v(o30)" #00aa00 1 3 0 0 0>
   </Rect>
 </Diagrams>
 <Paintings>

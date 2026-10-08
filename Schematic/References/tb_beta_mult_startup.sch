@@ -47,6 +47,15 @@
   <-100 270 -100 270 "s1_off" -90 250 0 "">
 </Wires>
 <Diagrams>
+  <Rect 480 250 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "time (s)" "Iref (uA)" "">
+	<"ngspice/tran.iref_on" #0000ff 1 3 0 0 0>
+	<"ngspice/tran.iref_off" #ff0000 1 3 0 0 0>
+  </Rect>
+  <Rect 480 720 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "time (s)" "voltage (V)" "">
+	<"ngspice/tran.v(pg_on)" #0000ff 1 3 0 0 0>
+	<"ngspice/tran.v(pg_off)" #ff0000 1 3 0 0 0>
+	<"ngspice/tran.v(s1_on)" #ff00ff 1 3 0 0 0>
+  </Rect>
 </Diagrams>
 <Paintings>
   <Text -420 -150 10 #000000 0 "kick ON: kg tied to s1 (the real circuit)">
