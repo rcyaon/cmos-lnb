@@ -117,17 +117,17 @@ The local oscillator is a three-stage current-starved inverter ring with a two-i
 
 #### Current Limited Ring Stage
 
+![Current Limited Stage](/Images/Ring_Inverter.png)
 *Most Up-To-Date Schematic: Schematic/Oscillator/RingInverterMkII.sch*
 
-![Current Limited Stage](/Images/Ring_Inverter.png)
 
 This current limited ring stage is used to form the core oscillator in the design.  The current control allows the frequency to be adjusted from a few hundred MHz (low current) to nearly 1.5 GHz (high current).  The more current that is let pass though the inverter by the leading and trailing degeneration transistor the more current is able to drive the output capacitance of the device and the faster the oscillator moves. 
 
 #### Capacitively Loaded Ring Stage
 
+![C Loaded Stage](/Images/Ring_Inverter_No_I_Lim.png)
 *Most Up-To-Date Schematic: Schematic/Oscillator/RingInverterMkI.sch*
 
-![C Loaded Stage](/Images/Ring_Inverter_No_I_Lim.png)
 
 This is a capacitively loaded buffer stage for the ring oscillator.  It ensures that the drive level is as high as it needs to be to control the Gilbert cell.  In the design two of these are ganged together in order to create a differential output to drive the LO input of the mixer.
 
