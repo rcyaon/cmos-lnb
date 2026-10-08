@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-6881,-4983,8296,3908,0.698584,3208,3077>
+  <View=-6881,-4924,8296,3908,1.0228,5080,4708>
   <Grid=10,10,1>
   <DataSet=LNAMkII.dat>
   <DataDisplay=LNAMkII.dpl>
@@ -59,9 +59,9 @@
   <GND * 1 -2190 140 0 0 0 0>
   <GND * 1 -2230 40 0 0 1 2>
   <GND * 1 -1210 200 0 0 0 0>
-  <C_SPICE C5 1 -1250 190 -26 17 1 2 "cap_mim_2f0fF c_width=40u c_length=40u" 0 "" 0 "" 0 "" 0 "" 0 "2" 1 "X" 1>
   <Port TBias 1 -2190 -90 -72 -23 0 3 "5" 1 "analog" 0>
   <Sub SUB8 1 -100 170 -26 135 0 0 "./Schematic/Output Buffer/OutputBufferMkVI.sch" 0>
+  <C_SPICE C5 1 -1250 190 -26 17 1 2 "cap_mim_2f0fF c_width=22u c_length=22u" 0 "" 0 "" 0 "" 0 "" 0 "2" 1 "X" 1>
 </Components>
 <Wires>
   <-770 130 -710 130 "" 0 0 0 "">

@@ -1,0 +1,158 @@
+* Qucs 26.1.1  /foss/designs/LNA/MkIII/Schematic/LNB/LNB_Testing_S_Parameters_MkI.sch
+.INCLUDE "/foss/tools/qucs-s/share/qucs-s/xspice_cmlib/include/ngspice_mathfunc.inc"
+.INCLUDE "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/design.ngspice"
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" bjt_typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" cap_mim
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" mimcap_typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" res_typical
+.LIB "/foss/pdks/ciel/gf180mcu/versions/026824c7969ce6f4fc9678e6ca04b0a06a596c4b/gf180mcuD/libs.tech/ngspice/sm141064.ngspice" FS
+.SUBCKT ErrorAmplifierPMOSMkII _net2 _net0 _net3 _net4 _net1 
+X8 _net5  _net0  _net3  _net4 pfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X11 _net5  _net2  _net6  _net4 pfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X1 _net3  _net6  0  0 nfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X13 _net6  _net6  0  0 nfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X12 _net4  _net1  _net5  _net4 pfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT MixerMkII _net0 _net1 _net2 _net3 _net4 _net5 _net6 _net7 _net8 _net9 
+XSUB1 _net8 _net6 _net10 _net5 _net7 ErrorAmplifierPMOSMkII
+X15 _net8  _net0  _net11  0 nfet_03v3 L=0.6u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X31 _net11  _net1  _net12  0 nfet_03v3 L=0.6u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X32 _net12  _net2  0  0 nfet_03v3 L=0.6u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X33 _net8  _net3  _net13  0 nfet_03v3 L=0.6u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X34 _net13  _net4  _net12  0 nfet_03v3 L=0.6u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X35 _net9  _net0  _net13  0 nfet_03v3 L=0.6u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X36 _net9  _net3  _net11  0 nfet_03v3 L=0.6u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X29 _net5  _net10  _net8  _net5 pfet_03v3 L=0.6u W=10.0u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X30 _net5  _net10  _net9  _net5 pfet_03v3 L=0.6u W=10.0u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT BalunMkIII _net0 _net1 _net2 _net3 _net4 _net5 
+XR1 _net2  _net0  0 ppolyf_u_1k r_width=2u r_length=40u
+XR2 _net3  _net0  0 ppolyf_u_1k r_width=2u r_length=40u
+XSUB1 _net2 _net3 _net6 _net0 _net5 ErrorAmplifierPMOSMkII
+X4 _net3  _net1  _net7  0 nfet_03v3 L=0.28u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X3 _net2  _net6  _net7  0 nfet_03v3 L=0.28u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X5 _net7  _net4  0  0 nfet_03v3 L=0.28u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT ErrorAmplifierPMOSMkII _net2 _net0 _net3 _net4 _net1 
+X8 _net5  _net0  _net3  _net4 pfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X11 _net5  _net2  _net6  _net4 pfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X1 _net3  _net6  0  0 nfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X13 _net6  _net6  0  0 nfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X12 _net4  _net1  _net5  _net4 pfet_03v3 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT GainStageMkII _net0 _net4 _net1 _net2 _net3 _net5 
+XSUB1 _net2 _net4 _net6 _net0 _net5 ErrorAmplifierPMOSMkII
+X15 _net0  _net6  _net7  _net0 pfet_03v3 L=0.28u W=20.0u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X13 _net2  _net3  _net8  0 nfet_03v3 L=0.28u W=20.0u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X16 _net8  _net1  0  0 nfet_03v3 L=0.28u W=20.0u nf=10 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XR1 _net2  _net7  0 ppolyf_s r_width=1u r_length=10u
+.ENDS
+.SUBCKT InputBufferMkI _net3 _net6 _net5 _net1 _net4 _net0 
+XSUB1 _net0 _net1 _net2 _net3 _net4 ErrorAmplifierPMOSMkII
+X1 _net3  _net2  _net0  _net3 pfet_03v3 L=0.28u W=20.0u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X2 _net0  _net5  _net6  0 nfet_03v3 L=0.28u W=20.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XR2 0  _net6  0 ppolyf_s r_width=1u r_length=9u
+.ENDS
+.SUBCKT ErrorAmplifierNMOSMkI _net2 _net0 _net3 _net4 _net1 
+X1 _net4  _net5  _net5  _net4 pfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X2 _net4  _net5  _net3  _net4 pfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X3 _net3  _net0  _net6  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X4 _net6  _net1  0  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X5 _net5  _net2  _net6  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT LDOMkI _net0 _net1 _net2 _net3 _net4 
+XSUB1 _net2 _net1 _net5 _net0 _net4 ErrorAmplifierNMOSMkI
+X1 _net0  _net5  _net3  _net0 pfet_06v0 L=10u W=80u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT ReferenceMkI _net6 _net4 _net1 _net2 _net0 
+X2 _net0  _net0  0  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XSUB1 _net1 _net2 _net3 _net4 _net0 LDOMkI
+XSUB2 _net1 _net2 _net5 _net6 _net0 LDOMkI
+XC2 _net6  _net5 cap_mim_2f0fF c_width=11u c_length=22u
+XC3 _net4  _net3 cap_mim_2f0fF c_width=11u c_length=22u
+XR5 _net5  _net6  0 ppolyf_u_1k r_width=1u r_length=10u
+XR7 0  _net5  0 ppolyf_u_1k r_width=1u r_length=24u
+XR8 _net3  _net4  0 ppolyf_u_1k r_width=1u r_length=15u
+XR6 0  _net3  0 ppolyf_u_1k r_width=1u r_length=14u
+.ENDS
+.SUBCKT OutputBufferMkVI _net0 _net2 _net1 
+XR3 0  _net2  0 ppolyf_u_1k r_width=2u r_length=2u
+XQ1 _net0  _net1  _net2  0 NPN_10P00X10P00 m=1
+.ENDS
+.SUBCKT RingInverterMkII _net0 _net1 _net2 _net5 _net6 
+X29 _net2  _net1  _net3  0 nfet_03v3 L=0.28u W=2.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X28 _net4  _net1  _net2  _net0 pfet_03v3 L=0.28u W=10.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X30 _net0  _net5  _net4  _net0 pfet_03v3 L=0.28u W=10.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X31 _net3  _net6  0  0 nfet_03v3 L=0.28u W=2.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XC1 _net2  0 cap_mim_2f0fF c_width=2u c_length=5u
+.ENDS
+.SUBCKT RingInverterMkI _net0 _net1 _net2 
+X29 _net2  _net1  0  0 nfet_03v3 L=0.28u W=2.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X28 _net0  _net1  _net2  _net0 pfet_03v3 L=0.28u W=10.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XC1 _net2  0 cap_mim_2f0fF c_width=7u c_length=5u
+.ENDS
+.SUBCKT RingOscillatorMkII _net0 _net2 _net1 _net3 _net4 
+XSUB1 _net0 _net3 _net5 _net6 _net4 RingInverterMkII
+XSUB2 _net0 _net5 _net7 _net6 _net4 RingInverterMkII
+XSUB3 _net0 _net7 _net3 _net6 _net4 RingInverterMkII
+XSUB4 _net0 _net3 _net2 RingInverterMkI
+XSUB5 _net0 _net2 _net1 RingInverterMkI
+X3 _net0  _net6  _net6  _net0 pfet_03v3 L=0.28u W=10.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X4 _net6  _net4  0  0 nfet_03v3 L=0.28u W=2.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+.ENDS
+.SUBCKT LNBMkII _net0 _net1 _net2 _net3 _net19 _net13 _net20 _net21 
+XSUB18 _net4 _net5 _net1 _net6 _net7 _net2 _net8 _net9 _net10 _net11 MixerMkII
+XSUB19 _net2 _net12 _net5 _net7 _net13 _net9 BalunMkIII
+X2 _net13  _net13  0  0 nfet_03v3 L=0.28u W=5.00u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XC10 _net8  0 cap_mim_2f0fF c_width=22u c_length=22u
+XSUB22 _net2 _net14 _net15 _net16 _net8 _net9 GainStageMkII
+XSUB23 _net2 _net14 _net16 _net17 _net8 _net9 GainStageMkII
+XSUB24 _net2 _net0 _net14 _net14 _net9 _net15 InputBufferMkI
+XSUB25 _net14 _net8 _net2 _net1 _net18 ReferenceMkI
+X3 _net2  _net9  _net9  _net2 pfet_03v3 L=0.5u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X4 _net9  _net19  0  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X5 _net19  _net19  0  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X6 _net2  _net9  _net9  _net2 pfet_03v3 L=0.5u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X7 _net2  _net9  _net18  _net2 pfet_03v3 L=0.5u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+X8 _net9  _net19  0  0 nfet_06v0 L=4u W=10u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XC11 _net14  0 cap_mim_2f0fF c_width=40u c_length=40u
+XSUB8 _net2 _net3 _net10 OutputBufferMkVI
+XSUB26 _net2 _net14 _net17 _net12 _net8 _net9 GainStageMkII
+X9 _net20  _net20  0  0 nfet_03v3 L=0.28u W=2.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0
+XSUB27 _net2 _net4 _net6 _net21 _net20 RingOscillatorMkII
+.ENDS
+.PARAM sw_stat_global = 0
+.PARAM sw_stat_mismatch = 0
+.PARAM fnoicor = 1
+
+
+
+
+
+V3 _net0 0 DC 1.2
+C3 input _net1  10P 
+C4 output _net2  10P 
+V4 _net3 0 DC 3.3
+VP2 input 0 dc 0 ac 0.02 SIN(0 0.02 1.7G) portnum 1 z0 50
+I2 _net3 _net4 DC 150U
+XSUB2 _net1 _net0 _net3 _net2 _net5 _net4 _net6 LO LNBMkII
+I3 _net3 _net5 DC 20U
+I1 _net3 _net6 DC 2000U
+VP3 output 0 dc 0 ac 0.02 SIN(0 0.02 1.7G) portnum 2 z0 50
+
+
+.control
+
+SP LIN 200 1MEG 5G 1
+let s11_db = dB(s_1_1)
+let s21_db = dB(s_2_1)
+let s12_db = dB(s_1_2)
+let s22_db = dB(s_2_2)
+let nf_db = 10 * log( cy_2_2 / ( boltz * 10 * (z_2_1 ^ 2) ))
+write spice4qucs.sp1.plot S_1_1 Y_1_1 Z_1_1 Cy_1_1 S_1_2 Y_1_2 Z_1_2 Cy_1_2 S_2_1 Y_2_1 Z_2_1 Cy_2_1 S_2_2 Y_2_2 Z_2_2 Cy_2_2 Rn NF SOpt NFmin s11_db s21_db s12_db s22_db nf_db
+destroy all
+reset
+
+exit
+.endc
+.END
