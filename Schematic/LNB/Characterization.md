@@ -2,6 +2,8 @@
 
 *Most Up-To-Date Schematic: Schematic/LNB/LNBMkII.sch*
 
+All characterization was done with a 3.3V supply, at 27 C and with the oscillator current limiters provided with 2 mA of current.
+
 ## S Parameter Test Bench
 
 *Most Up-To-Date Schematic: Schematic/LNB/LNB_Testing_S_Parameters_MkI.sch*
