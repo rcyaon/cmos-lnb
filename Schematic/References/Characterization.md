@@ -93,6 +93,19 @@ The beta multiplier on its own (`tb_beta_mult_supply`, `tb_beta_mult_temp`, `tb_
 
 `ringosci.sch` is a three-stage current-starved inverter ring with a two-inverter output buffer.  A control current into `ictl` sets the frequency.
 
+
+| Parameter                               | Minimum  | Typical  | Maximum  |
+| --------------------------------------- | -------- | -------- | -------- |
+| LO Frequency, 20 µA Control Current     | 0.45 GHz | 0.48 GHz | 0.50 GHz |
+| LO Frequency, 80 µA Control Current     | 1.02 GHz | 1.22 GHz | 1.36 GHz |
+| LO Frequency, 200 µA Control Current    | 1.13 GHz | 1.42 GHz | 1.67 GHz |
+| LO Frequency, 200 µA Control Current    | 1.13 GHz | 1.42 GHz | 1.67 GHz |
+| Supply Current, Running at 80 µA        | 1.31 mA  | 1.57 mA  | 1.82 mA  |
+| Supply Current, Control Current Removed | 13 µA    | 35 µA    | 58 µA    |
+
+Minimum and maximum are across the process corners at 5 V and 27 °C.  The tuning curve flattens out above about 100 µA, and the oscillator is free running, so the frequency also moves with temperature (1.36 GHz at -25 °C down to 1.01 GHz at 125 °C at 80 µA) and supply.  The full results are [here](Schematic/References/Characterization.md#ring-oscillator).
+
+
 | | Min | Typ | Max | Bench |
 |---|---|---|---|---|
 | LO frequency, 20 µA control current (GHz) | 0.447 | 0.482 | 0.504 | `tb_ringosci_tune` |
