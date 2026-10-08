@@ -265,7 +265,7 @@ A simple LDO for biasing was created by adding an output buffer transistor to a 
 
 |Name|Type|Width|Length|Oxide Thickness|
 |-------|-----|-------|--------|-------------------|
-| M1 | pfet | 20u | 10u | Thick (6v0) |
+| M1 | pfet | 80u | 10u | Thick (6v0) |
 
 #### nMOS Error Amplifier
 
@@ -318,7 +318,7 @@ The devices size was estimated according to the following formulas:
 | Gain Stage | 112.8 um<sup>2</sup> |
 | Input Buffer | 79.6 um<sup>2</sup> |
 | nMOS Error Amplifier | 545.0 um<sup>2</sup> |
-| LDO | 518.0 um<sup>2</sup> |
+| LDO | 2,072.0 um<sup>2</sup> |
 | Reference | 736.2 um<sup>2</sup> |
 | Output Buffer | 914.4 um<sup>2</sup> |
 | Current Limited Ring Stage | 35.0 um<sup>2</sup> |
@@ -326,9 +326,9 @@ The devices size was estimated according to the following formulas:
 | Oscillator |  20.0 um<sup>2</sup> |
 | LNB | 1,405.7 um<sup>2</sup> |
 
-Summed Area: 6,215.1 um<sup>2</sup>
+Summed Area: 9,323.1 um<sup>2</sup>
 
-Area Estimate: ~8000 um<sup>2</sup>
+Area Estimate: ~12,000 um<sup>2</sup>
 
 ## Low Noise Amplifier
 
@@ -396,14 +396,14 @@ The devices size was estimated according to the following formulas:
 | Gain Stage | 112.8 um<sup>2</sup> |
 | Input Buffer | 79.6 um<sup>2</sup> |
 | nMOS Error Amplifier | 545.0 um<sup>2</sup> |
-| LDO | 518.0 um<sup>2</sup> |
+| LDO | 2,072.0 um<sup>2</sup> |
 | Reference | 736.2 um<sup>2</sup> |
 | Output Buffer | 914.4 um<sup>2</sup> |
 | LNA | 1,393.7 um<sup>2</sup> |
 
-Summed Area: 5,486.3 um<sup>2</sup>
+Summed Area: 8,594.3 um<sup>2</sup>
 
-Area Estimate: ~7000 um<sup>2</sup>
+Area Estimate: ~10,000 um<sup>2</sup>
 
 
 ## Acknowledgements
