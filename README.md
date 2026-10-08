@@ -40,6 +40,9 @@ A subset of the target performance metrics submitted in the proposal for our pro
 
 An overall block diagram of the proposed down converter is shown above.  The design of the system is separated into four major components: the front-end, the frequency converter, the local oscillator and supporting bias circuitry (not shown in the block diagram).  The front-end perform an impedance conversion from the 50Ω input impedance to a high characteristic impedance signal which then drives a series of three nMOS gain stages that follow. The frequency converter accepts a single ended, high impedance input signal from the front-end and a differential local oscillator.  It buffers out a 50Ω output signal that is approximately the linear multiplication of the two input signals.  This creates a lower frequency image of the RF input signal.  The integrated local oscillator provides a stable tone to the frequency converter.  It also allows for an external tone to be input into the device if higher stability is needed in a certain application.  The supporting bias circuitry biases the all of the components so that they operate correctly.
 
+The following top-level schematic was created for the LNB:
+![LNB](/Images/LNB.png)
+
 ### Front-end
 
 ![Front-end Block Diagram](Images/LNB_Front_End_Block_Diagram_2.png)
@@ -211,6 +214,9 @@ After initial design work and preliminary design review it was decided that the 
 
 The diagram above shows the working principle of the LNA with biasing removed.
 
+The following top-level schematic was created for the LNB:
+![LNA](/Images/LNA.png)
+
 Testing and characterization of the voltage reference is available [here](Schematic/LNA/Characterization.md).
 
 ### Overall Performance
@@ -233,8 +239,6 @@ A summary of the proposed LNA's performance is below.  More details regarding th
 | Temperature Stability    | -25 C   | --      | 125 C   | [Temperature Test Bench](Schematic/LNA/Characterization.md#temperature-test-bench)                |
 
 The weakest point of the amplifier performance is the output compression; it compresses at a very low output power level.  This is alright for satellite communication and weak amateur radio communications, where the signals are already very weak to begin with and the LNA is used after an antenna to amplify a signal before it reaches the high gain, but higher noise figure front-end amplifiers of a software-defined radio. That being said, it would limit use of the component in other applications (such as a diode-ring mixer pre-driver).  The limit is likely a result of cascode drain degeneration on the middle two common source gain stages.  The trade off is kept because this degeneration flattens the frequency response of the amplifier and will make it more stable.  Amplifier stability is of chief concern, it is better to have a low amplifier that works than an oscillator.
-
-The top-level schematic of the entire LNA is shown above.  
 
 ## Acknowledgements
 
