@@ -15,11 +15,12 @@ Our goal is to develop this project using only open source tools, as such the to
 - OpenEMS for full wave electromagnetic simulations
 - KLayout for layout
 
-The target performance submitted in the proposal for our project is included in the table below.
+A subset of the target performance metrics submitted in the proposal for our project is included in the table below.
 
 | Parameter                           | Minimum   | Typical   | Maximum |
 | ----------------------------------- | --------- | --------- | ------- |
 | Frequency Range                     | 900 MHz   | 1.7 GHz   | 2 GHz   |
+| Local Oscillator Frequency          | --        | 1.2 GHz   | --      | 
 | Power Gain                          | 10 dB     | 18 dB     | 27 dB   |
 | Noise Figure                        | 2.2 dB    | 3 dB      | 7 dB    |
 | Input Return Loss w/ Package (S11)  | -15 dB    | -20 dB    | -25 dB  |
@@ -181,6 +182,21 @@ The output control for the reference LDOs is provided by the above nMOS error am
 Prior to the preliminary design review, this design was characterized at the typical corners, as well as the slow and fast corners.  Performance is mostly hindered by lots of LO feed through due to poor local oscillator quality.  The addition of the mixer and oscillator raise many questions about the stability of the design, especially with unaccounted for electromagnetic coupling in effect.
 
 
+| Description              | Minimum | Typical | Maximum | Simulation Results                                                                                |
+| ------------------------ | ------- | ------- | ------- | ------------------------------------------------------------------------------------------------- |
+| RF Frequency Range       | 300 MHz | 1.7 GHz | 2 GHz   | [Gain Test Bench](Schematic/LNB/Characterization.md#gain-test-bench) |
+| LO Frequency Range       | 300 MHz | 1.7 GHz | 2 GHz   | [Frequency Test Bench](Schematic/Oscillator/Characterization.md#frequency-test-bench) |
+| Power Gain               | 9 dB    | 13 dB   | 21 dB   | [Gain Test Bench](Schematic/LNB/Characterization.md#gain-test-bench) |
+| Noise Figure             | --      | --      | --      | This is hard to calculate, a custom python script needs to be written |
+| Input Return Loss (S11)  | -13 dB  | -15 dB  | -17 dB  | [S Parameter Test Bench](Schematic/LNB/Characterization.md#s-parameter-test-bench) |
+| Output Return Loss (S22) | -5 dB   | -7 dB   | -9 dB   | [S Parameter Test Bench](Schematic/LNB/Characterization.md#s-parameter-test-bench) |
+| Output P1dB              | -19 dB  | -17 dB  | -16 dB  | [Compression Test Bench](Schematic/LNB/Characterization.md#compression-test-bench) |
+| Output IP3               | -9 dBm  | -7 dBm  | -7 dBm  | [Linearity Test Bench](Schematic/LNB/Characterization.md#linearity-test-bench) |
+| Gain Flatness            | 6 dB    | 8 dB    | 11 dB   | [Gain Test Bench](Schematic/LNB/Characterization.md#-test-bench) |
+| DC Power Consumption     | --      | 50 mW   | --      | [Power Consumption Test Bench](Schematic/LNB/Characterization.md#power-consumption-test-bench) |
+| Voltage Supply           | 3.0 V   | 3.3 V   | 4.0 V   | [Supply Test Bench](Schematic/LNB/Characterization.md#supply-test-bench) |
+| Temperature Stability    | -25 C   | --      | 125 C   | [Temperature Test Bench](Schematic/LNB/Characterization.md#temperature-test-bench) |
+
 ## Low Noise Amplifier
 
 ![LNA Block Diagram](/Images/LNA_Block_Diagram_2.png)
@@ -199,13 +215,13 @@ Testing and characterization of the voltage reference is available [here](Schema
 
 ### Overall Performance
 
-A summary of the proposed LNA's performance is below.  More details regarding the simulations used to determine these performance metrics are linked in the table.  The variability within this table spans all corner simulations the PDK supports, that is, this much variability would not be likely on a single die, although one extreme or the other could theoretically be reached on a single die.
+A summary of the proposed LNA's performance is below.  More details regarding the simulations used to determine these performance metrics are linked in the table.  The variability within this table spans all corner simulations the PDK supports, that is, this much variability would not be likely on a single die, although one extreme or the other could theoretically be reached on a single die.  These performance metrics were evaluated with the LDO (band gap reference) bias circuits.  Results would likely be similar with the self referenced design, perhaps slightly degraded.
 
 | Description              | Minimum | Typical | Maximum | Simulation Results                                                                                |
 | ------------------------ | ------- | ------- | ------- | ------------------------------------------------------------------------------------------------- |
 | Frequency Range          | 300 MHz | 1.7 GHz | 2 GHz   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)                |
 | Power Gain               | 9 dB    | 13 dB   | 21 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)                |
-| Noise Figure             | --      | --      | --      | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)                |
+| Noise Figure             | --      | --      | --      | There is either a bug in QUCS-S or something is wrong in the PDK FET/BJT parameters. Determining the root cause...|
 | Input Return Loss (S11)  | -13 dB  | -15 dB  | -17 dB  | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)                |
 | Output Return Loss (S22) | -5 dB   | -7 dB   | -9 dB   | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)                |
 | Rollett Stability Factor | > 1400  | --      | --      | [S-Parameter Test Bench](Schematic/LNA/Characterization.md#s-parameter-test-bench)                |
