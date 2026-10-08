@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-346,480,1505,1493,1.27486,548,147>
+  <View=12,662,856,1135,1.86653,0,0>
   <Grid=10,10,1>
   <DataSet=OutputBufferMkVI.dat>
   <DataDisplay=OutputBufferMkVI.dpl>
@@ -21,12 +21,12 @@
   <Line -70 10 -10 0 #000080 2 1>
   <Line 70 10 10 0 #000080 2 1>
   <Line -70 -70 140 0 #000080 2 1>
-  <Line 70 -70 0 160 #000080 2 1>
-  <Line -70 -70 0 160 #000080 2 1>
+  <Line 70 -70 0 120 #000080 2 1>
+  <Line -70 -70 0 120 #000080 2 1>
   <Text -20 -70 12 #000000 0 "VDD">
   <Text -60 0 12 #000000 0 "Input">
   <Text 10 0 12 #000000 0 "Output">
-  <Line -70 90 140 0 #000080 2 1>
+  <Line -70 50 140 0 #000080 2 1>
   <.PortSym 80 10 2 180 Output>
 </Symbol>
 <Components>

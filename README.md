@@ -71,26 +71,6 @@ The CMOS gain stage increases the voltage level of the input signal.  A net powe
 The common mode output control for both the gain stages and the input buffer is achieved with a pMOS operational transconductance amplifier acting as an error amplifier on the output DC level.  Very small transistors are intentionally used on this component in order to limit the frequency response and load capacitance of the error amplifier.  Small transistors suffer from poor matching between identical devices fortunately [Monte Carlo simulations](<Schematic/Gain Stage/Characterization.md>) showed DC output level errors from mismatch in the control amplifier did not have a significant effect on system performance.  Increasing the size of the devices resulted in poor performance or oscillations in the output due to capacitive loading and coupling through the amplifier.
 
 
-#### End-to-end Performance
-
-Simulation was performed in QUCS-S and the following metrics were measured.  The following table includes a performance summary of the LNB front-end.  The variance reflected in these numbers are taken across the system performance corners and do not necessarily  reflect what the actual performance of the device will be.  It is expected that real performance will be much closer to the "typical" value.  Monte Carlo simulations of the system's performance was performed in order to 
-
-| Parameter                    | Minimum | Typical | Maximum | Simulation Results          |
-| ---------------------------- | ------- | ------- | ------- | --------------------------- |
-| Voltage Gain                 |         |         |         | [Voltage gain test bench]() |
-| Noise Figure                 |         |         |         | [Noise figure test bench]() |
-| Input Return Loss (S11)      |         |         |         | [S-Parameter test bench]()  |
-| Output Return Loss (S22)     |         |         |         | [S-Parameter test bench]()  |
-| Reverse Isolation (S12)      |         |         |         | [S-Parameter test bench]()  |
-| Forward Gain (S21)           |         |         |         | [S-Parameter test bench]()  |
-| Voltage Gain Flatness        |         |         |         | [Voltage gain test bench]() |
-| Output IP3                   |         |         |         | [Linearity test bench]()    |
-| Input P1dB                   |         |         |         | [Compression test bench]()  |
-| Rollett (K) Stability Factor |         |         |         | [S-Parameter test bench]()  |
-| μ Stability Factor           |         |         |         | [S-Parameter test bench]()  |
-
-  Monte Carlo simulations of the system S-parameters
-
 ### Frequency Converter
 
 ![Frequency Converter Block Diagram](Images/LNB_Frequency_Converter_Block_Diagram_2.png)
@@ -108,6 +88,8 @@ The active balun converts the amplified single ended signal from the front-end i
 ![Mixer](Images/Mixer.png)
 
 *Most Up-To-Date Schematic: Schematic/Mixer/MixerMkII.sch*
+
+The mixer topology was selected to be a Gilbert cell due to the ease of implementation on chip and the high performance.  
 
 
 #### Bipolar Output Buffer
@@ -143,21 +125,7 @@ The local oscillator is a three-stage current-starved inverter ring with a two-i
 
 Minimum and maximum are across the process corners at 5 V and 27 °C.  The tuning curve flattens out above about 100 µA, and the oscillator is free running, so the frequency also moves with temperature (1.36 GHz at -25 °C down to 1.01 GHz at 125 °C at 80 µA) and supply.  The full results are [here](Schematic/References/Characterization.md#ring-oscillator).
 
-### Biasing
-
-Biasing for the various circuit elements is provided by two similar, extremely bare-bones, LDOs making use of the harness band gap reference.  
-
-#### Reference
-
-![Reference](Images/Reference.png)
-
-*Most Up-To-Date Schematic: Schematic/LDO/ReferenceMkI.sch*
-
-Two LDO circuit with output voltages set by a high-res poly resistor divider are used to create a 1.7V and 2.5V bias reference on the chip.  The LDOs rely on the band gap voltage reference on the harness in order to generate the correct voltage.  Within the LNB there are some places where the band gap reference is directly used for biasing.  If this is unacceptable due to harnessing constraints, an additional stage buffer stage can be added. In the LNB stages the 1.7 V rail generally serves as the reference for the common mode output controllers and the 2.5 V rail serves as a bias point for the cascoded nMOS transistors in the gain stages.  In the Gilbert cell the 1.2 V from the band gap reference is also used.
-
-Testing and characterization of the voltage reference is available [here](Schematic/LDO/Characterization.md).
-
-#### Self-Biased Reference
+### Biasing Reference (Self Referenced)
 
 ![Beta Multiplier](Images/QUCS_beta_mult.png)
 
@@ -177,6 +145,22 @@ A second bias generator that doesn't need the harness band gap: a beta-multiplie
 | Supply Current               | 97 µA   | 119 µA  | 156 µA  |
 
 Minimum and maximum are across the process corners at 5 V and 27 °C.  It starts up reliably and is stable into capacitive loads, but since it's self-biased the outputs wander with supply, temperature and mismatch much more than the LDOs above.  So the LNA doesn't use it; the LDO reference is still the bias source.  The full results are [here](Schematic/References/Characterization.md).
+
+
+
+### Biasing (Band Gap Referenced)
+
+The bias voltage for the various circuit elements could also be provided by two similar, extremely bare-bones, LDOs making use of the harness' built in band gap reference.
+
+#### Reference
+
+![Reference](Images/Reference.png)
+
+*Most Up-To-Date Schematic: Schematic/LDO/ReferenceMkI.sch*
+
+Two LDO circuit with output voltages set by a high-res poly resistor divider are used to create a 1.7V and 2.5V bias reference on the chip.  The LDOs rely on the band gap voltage reference on the harness in order to generate the correct voltage.  Within the LNB there are some places where the band gap reference is directly used for biasing.  If this is unacceptable due to harnessing constraints, an additional stage buffer stage can be added. In the LNB stages the 1.7 V rail generally serves as the reference for the common mode output controllers and the 2.5 V rail serves as a bias point for the cascoded nMOS transistors in the gain stages.  In the Gilbert cell the 1.2 V from the band gap reference is also used.
+
+Testing and characterization of the voltage reference is available [here](Schematic/LDO/Characterization.md).
 
 #### LDO
 
