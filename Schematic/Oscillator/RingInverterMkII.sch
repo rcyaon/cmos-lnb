@@ -47,7 +47,7 @@
   <MOS_SPICE X31 1 120 870 -26 34 0 0 "X" 1 "4" 1 "nmos" 1 "nfet_03v3 L=0.28u W=2.50u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
   <Port PBias 1 10 410 -23 12 0 0 "4" 1 "analog" 0>
   <Port NBias 1 10 870 -23 12 0 0 "5" 1 "analog" 0>
-  <C C1 1 240 730 17 -26 0 1 "0.02 pF" 1 "" 0 "neutral" 0>
+  <C_SPICE C1 1 240 730 17 -26 0 1 "cap_mim_2f0fF c_width=2u c_length=5u" 0 "" 0 "" 0 "" 0 "" 0 "2" 1 "X" 1>
 </Components>
 <Wires>
   <120 920 120 980 "" 0 0 0 "">
