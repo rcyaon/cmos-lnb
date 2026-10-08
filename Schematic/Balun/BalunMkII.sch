@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-214,-268,2201,1082,0.652641,0,0>
+  <View=-78,-157,1571,765,0.955531,0,0>
   <Grid=10,10,1>
   <DataSet=BalunMkII.dat>
   <DataDisplay=BalunMkII.dpl>
@@ -61,9 +61,9 @@
   <MOS_SPICE X33 1 940 490 0 34 1 2 "X" 1 "4" 1 "nmos" 1 "nfet_06v0 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
   <MOS_SPICE X34 1 940 350 -26 34 0 0 "X" 1 "4" 1 "pmos" 1 "pfet_06v0 L=0.6u W=0.3u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
   <R_SPICE R1 1 620 110 15 -26 0 1 "ppolyf_u_1k r_width=2u r_length=40u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
-  <R_SPICE R2 1 480 110 15 -26 0 1 "ppolyf_u_1k r_width=2u r_length=40u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
   <GND * 1 570 140 0 0 0 0>
   <GND * 1 430 140 0 0 0 0>
+  <R_SPICE R2 1 480 110 15 -26 0 1 "ppolyf_u_1k r_width=2u r_length=40u" 0 "" 0 "" 0 "" 0 "" 0 "3" 1 "X" 1>
 </Components>
 <Wires>
   <550 620 550 700 "" 0 0 0 "">
@@ -126,9 +126,9 @@
   <620 60 980 60 "" 0 0 0 "">
   <480 60 550 60 "" 0 0 0 "">
   <480 60 480 80 "" 0 0 0 "">
-  <590 110 570 110 "" 0 0 0 "">
+  <570 110 590 110 "" 0 0 0 "">
   <570 110 570 140 "" 0 0 0 "">
-  <450 110 430 110 "" 0 0 0 "">
+  <430 110 450 110 "" 0 0 0 "">
   <430 110 430 140 "" 0 0 0 "">
 </Wires>
 <Diagrams>

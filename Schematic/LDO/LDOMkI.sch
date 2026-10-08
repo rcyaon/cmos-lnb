@@ -1,6 +1,6 @@
 <Qucs Schematic 26.1.1>
 <Properties>
-  <View=-70,-37,1355,685,1.77156,0,0>
+  <View=-58,-60,839,442,1.756,0,0>
   <Grid=10,10,1>
   <DataSet=LDOMkI.dat>
   <DataDisplay=LDOMkI.dpl>
@@ -42,24 +42,25 @@
   <Port Output 1 590 220 4 -50 0 2 "4" 1 "analog" 0>
   <Port TBias 1 380 220 4 12 1 2 "5" 1 "analog" 0>
   <Sub SUB1 1 280 170 -26 78 0 0 "./Schematic/Error Amplifier/ErrorAmplifierNMOSMkI.sch" 0>
-  <MOS_SPICE X1 1 510 170 -26 34 0 0 "X" 1 "4" 1 "pmos" 1 "pfet_06v0 L=10u W=40u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
+  <MOS_SPICE X1 1 510 170 -26 34 0 0 "X" 1 "4" 1 "pmos" 1 "pfet_06v0 L=10u W=80u nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)' ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0" 0 "" 0 "" 0 "" 0 "" 0>
 </Components>
 <Wires>
   <280 70 280 100 "" 0 0 0 "">
   <150 220 200 220 "" 0 0 0 "">
   <150 170 200 170 "" 0 0 0 "">
-  <480 170 360 170 "" 0 0 0 "">
+  <360 170 480 170 "" 0 0 0 "">
   <280 100 510 100 "" 0 0 0 "">
   <510 100 510 140 "" 0 0 0 "">
   <280 100 280 120 "" 0 0 0 "">
   <530 170 550 170 "" 0 0 0 "">
   <510 100 550 100 "" 0 0 0 "">
   <550 100 550 170 "" 0 0 0 "">
-  <590 220 510 220 "" 0 0 0 "">
+  <510 220 590 220 "" 0 0 0 "">
   <360 220 380 220 "" 0 0 0 "">
-  <510 220 510 200 "" 0 0 0 "">
+  <510 200 510 220 "" 0 0 0 "">
 </Wires>
 <Diagrams>
 </Diagrams>
 <Paintings>
+  <Text 290 110 12 #000000 0 "nMOS Error Amplifier">
 </Paintings>

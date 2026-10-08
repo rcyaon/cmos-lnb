@@ -20,7 +20,7 @@
   <GND * 1 -560 50 0 0 0 0>
   <Sub Xbias 1 -250 0 -40 60 0 0 "beta_mult.sch" 0>
   <Sub Xref 1 180 0 -40 60 0 0 "vref.sch" 0>
-  <.CUSTOMSIM CUSTOM1 1 -580 600 0 40 0 0 "\ndc v1 0 6 0.01\nwrite tb_vref_supply.raw v(o07) v(o20) v(o30) v(vdd)\n" 1 "v(o07);v(o20);v(o30);v(vdd)" 0 "" 0>
+  <.CUSTOMSIM CUSTOM1 1 -580 600 0 40 0 0 "\nsave all @m.xbias.xm7.m0[id]\ndc v1 0 6 0.01\nlet iref = @m.xbias.xm7.m0[id]*1e6\nlet idd = -i(v1)*1e6\nwrite tb_vref_supply.raw v(o07) v(o20) v(o30) v(vdd) iref idd\n" 1 "v(o07);v(o20);v(o30);v(vdd);iref;idd" 0 "" 0>
 </Components>
 <Wires>
   <-560 30 -560 50 "" 0 0 0 "">
@@ -39,6 +39,15 @@
   <330 20 330 20 "o30" 340 0 0 "">
 </Wires>
 <Diagrams>
+  <Rect 480 250 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "VDD (V)" "tap voltage (V)" "">
+	<"ngspice/v(o07)" #0000ff 1 3 0 0 0>
+	<"ngspice/v(o20)" #ff0000 1 3 0 0 0>
+	<"ngspice/v(o30)" #ff00ff 1 3 0 0 0>
+  </Rect>
+  <Rect 480 720 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "VDD (V)" "current (uA)" "">
+	<"ngspice/iref" #0000ff 1 3 0 0 0>
+	<"ngspice/idd" #ff0000 1 3 0 0 0>
+  </Rect>
 </Diagrams>
 <Paintings>
 </Paintings>

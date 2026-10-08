@@ -22,7 +22,7 @@
   <Sub X1 1 -150 0 -40 60 0 0 "ringosci.sch" 0>
   <C C1 1 60 60 17 -26 0 1 "50f" 1 "" 0 "neutral" 0>
   <GND * 1 60 110 0 0 0 0>
-  <.CUSTOMSIM CUSTOM1 1 -580 600 0 40 0 0 "\ntran 1p 30n 0 1p\nmeas tran t1 WHEN v(lo)=2.5 RISE=10\nmeas tran t2 WHEN v(lo)=2.5 RISE=30\nlet fosc_ghz = 20/(t2-t1)/1e9\nprint fosc_ghz\nlet idd = -i(v1)*1e3\nwrite tb_ringosci.raw v(lo) v(vdd) idd\n" 1 "v(lo);v(vdd);idd" 0 "" 0>
+  <.CUSTOMSIM CUSTOM1 1 -580 600 0 40 0 0 "\ntran 1p 30n 0 1p\nmeas tran t1 WHEN v(lo)=2.5 RISE=5\nmeas tran t2 WHEN v(lo)=2.5 RISE=25\nlet fosc_ghz = 20/(t2-t1)/1e9\nprint fosc_ghz\nlet idd = -i(v1)*1e3\nwrite tb_ringosci.raw v(lo) v(vdd) idd\n" 1 "v(lo);v(vdd);idd" 0 "" 0>
 </Components>
 <Wires>
   <-460 30 -460 50 "" 0 0 0 "">
@@ -36,6 +36,12 @@
   <60 30 60 30 "lo" 70 10 0 "">
 </Wires>
 <Diagrams>
+  <Rect 480 250 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "time (s)" "LO (V)" "">
+	<"ngspice/tran.v(lo)" #0000ff 1 3 0 0 0>
+  </Rect>
+  <Rect 480 720 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "time (s)" "supply current (mA)" "">
+	<"ngspice/tran.idd" #0000ff 1 3 0 0 0>
+  </Rect>
 </Diagrams>
 <Paintings>
   <Text -460 -150 10 #000000 0 "ictl = 80 uA (stands in for the iDAC); 50 fF on lo stands in for the mixer LO input">
