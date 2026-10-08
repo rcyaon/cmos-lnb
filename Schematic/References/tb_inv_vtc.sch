@@ -33,6 +33,12 @@
   <-250 -20 -250 -20 "in" -240 -40 0 "">
 </Wires>
 <Diagrams>
+  <Rect 480 250 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "Vin (V)" "Vout (V)" "">
+	<"ngspice/v(out)" #0000ff 1 3 0 0 0>
+  </Rect>
+  <Rect 480 720 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "Vin (V)" "gain (V/V)" "">
+	<"ngspice/gain" #0000ff 1 3 0 0 0>
+  </Rect>
 </Diagrams>
 <Paintings>
 </Paintings>

@@ -33,6 +33,9 @@
   <-100 30 -100 30 "s1" -90 10 0 "">
 </Wires>
 <Diagrams>
+  <Rect 480 450 700 480 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "VDD (V)" "Iref (uA)" "">
+	<"ngspice/iref" #0000ff 1 3 0 0 0>
+  </Rect>
 </Diagrams>
 <Paintings>
 </Paintings>

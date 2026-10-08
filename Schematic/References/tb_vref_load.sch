@@ -52,6 +52,16 @@
   <-570 550 -570 550 "o20" -560 530 0 "">
 </Wires>
 <Diagrams>
+  <Rect 480 250 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "load per tap (uA)" "tap voltage (V)" "">
+	<"ngspice/v(o07)" #0000ff 1 3 0 0 0>
+	<"ngspice/v(o20)" #ff0000 1 3 0 0 0>
+	<"ngspice/v(o30)" #ff00ff 1 3 0 0 0>
+  </Rect>
+  <Rect 480 720 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "load per tap (uA)" "droop (mV)" "">
+	<"ngspice/d07" #0000ff 1 3 0 0 0>
+	<"ngspice/d20" #ff0000 1 3 0 0 0>
+	<"ngspice/d30" #ff00ff 1 3 0 0 0>
+  </Rect>
 </Diagrams>
 <Paintings>
 </Paintings>

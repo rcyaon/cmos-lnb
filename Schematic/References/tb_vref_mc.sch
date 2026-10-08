@@ -2,10 +2,10 @@
 <Properties>
   <View=-720,-360,530,980,1,0,0>
   <Grid=10,10,1>
-  <DataSet=tb_vref_supply.dat>
-  <DataDisplay=tb_vref_supply.dpl>
+  <DataSet=tb_vref_mc.dat>
+  <DataDisplay=tb_vref_mc.dpl>
   <OpenDisplay=0>
-  <Script=tb_vref_supply.m>
+  <Script=tb_vref_mc.m>
   <RunScript=0>
   <showFrame=0>
   <FrameText0=Title>
@@ -20,7 +20,8 @@
   <GND * 1 -560 50 0 0 0 0>
   <Sub Xbias 1 -250 0 -40 60 0 0 "beta_mult.sch" 0>
   <Sub Xref 1 180 0 -40 60 0 0 "vref.sch" 0>
-  <.CUSTOMSIM CUSTOM1 1 -580 600 0 40 0 0 "\nsave all @m.xbias.xm7.m0[id]\ndc v1 0 6 0.01\nlet iref = @m.xbias.xm7.m0[id]*1e6\nlet idd = -i(v1)*1e6\nwrite tb_vref_supply.raw v(o07) v(o20) v(o30) v(vdd) iref idd\n" 1 "v(o07);v(o20);v(o30);v(vdd);iref;idd" 0 "" 0>
+  <.CUSTOMSIM CUSTOM1 1 -580 600 0 40 0 0 "\n* Monte Carlo, one operating point per sample.  sw_stat_mismatch=1 gives\n* device mismatch; for die-to-die spread also set sw_stat_global=1 and\n* use the statistical section in gf180mcu_models.spice.\nlet mc_runs = 500\nlet run = 0\nset curplot = new\nset scratch = $curplot\nsetplot $scratch\nlet o07 = unitvec(mc_runs)\nlet o20 = unitvec(mc_runs)\nlet o30 = unitvec(mc_runs)\nlet idd = unitvec(mc_runs)\ndowhile run < mc_runs\n  reset\n  op\n  set run = $&run\n  set dt = $curplot\n  setplot $scratch\n  let o07[run] = {$dt}.v(o07)\n  let o20[run] = {$dt}.v(o20)\n  let o30[run] = {$dt}.v(o30)\n  let idd[run] = -{$dt}.i(v1)*1e6\n  destroy $dt\n  let run = run + 1\nend\nsetplot $scratch\nwrite tb_vref_mc.raw o07 o20 o30 idd\n" 1 "o07;o20;o30;idd" 0 "" 0>
+  <SpicePar SpicePar1 1 -580 -160 -28 16 0 0 "sw_stat_global=0" 1 "sw_stat_mismatch=1" 1>
 </Components>
 <Wires>
   <-560 30 -560 50 "" 0 0 0 "">
@@ -39,15 +40,6 @@
   <330 20 330 20 "o30" 340 0 0 "">
 </Wires>
 <Diagrams>
-  <Rect 480 250 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "VDD (V)" "tap voltage (V)" "">
-	<"ngspice/v(o07)" #0000ff 1 3 0 0 0>
-	<"ngspice/v(o20)" #ff0000 1 3 0 0 0>
-	<"ngspice/v(o30)" #ff00ff 1 3 0 0 0>
-  </Rect>
-  <Rect 480 720 620 380 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 -1 0.5 1 315 0 225 1 0 0 "VDD (V)" "current (uA)" "">
-	<"ngspice/iref" #0000ff 1 3 0 0 0>
-	<"ngspice/idd" #ff0000 1 3 0 0 0>
-  </Rect>
 </Diagrams>
 <Paintings>
 </Paintings>
